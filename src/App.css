@@ -45,4 +45,5 @@ h2 {
 
 html {
   scroll-behavior: smooth;
+  font-size: 90%; /* Reduce base font size for overall scaling */
 }

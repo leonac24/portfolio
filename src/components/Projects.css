@@ -1,45 +1,45 @@
 .projects-section {
-  padding: 60px 0;
+  padding: 54px 0;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  padding: 20px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 27px;
+  padding: 18px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
 .project-card {
   background: #3a3f4a;
   border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 18px;
+  box-shadow: 0 3.6px 7.2px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4.5px);
+  box-shadow: 0 7.2px 14.4px rgba(0, 0, 0, 0.3);
 }
 
 .project-card h3 {
   color: #e0e0e0;
-  margin-bottom: 15px;
+  margin-bottom: 13.5px;
 }
 
 .technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 15px 0;
+  gap: 9px;
+  margin: 13.5px 0;
 }
 
 .tech-tag {
   background: #282c34;
-  padding: 5px 10px;
-  border-radius: 15px;
+  padding: 4.5px 9px;
+  border-radius: 14px;
   font-size: 0.9rem;
   color: #f0f0f0;
   transition: all 0.3s ease;
@@ -47,12 +47,12 @@
 
 .tech-tag:hover {
   background: #1c1e21;
-  transform: translateY(-2px);
+  transform: translateY(-1.8px);
 }
 
 .project-link {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 13.5px;
   color: #61dafb;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -60,5 +60,5 @@
 
 .project-link:hover {
   color: #4dcfff;
-  transform: translateY(-2px);
+  transform: translateY(-1.8px);
 }

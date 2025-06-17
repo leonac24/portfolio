@@ -1,23 +1,24 @@
 .about-section {
-  padding: 60px 0;
+  padding: 54px 0;
   text-align: center;
   background-color: #282c34; /* Lighter background for the About section */
 }
 
 .profile-picture {
-  margin-bottom: 30px;
+  margin-bottom: 27px;
 }
 
 .profile-picture img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  object-fit: cover;}
+  object-fit: cover;
+}
 
 .about-content {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 18px;
 }
 
 .about-text {
@@ -26,7 +27,7 @@
 }
 
 .about-text p {
-  margin-bottom: 15px;
+  margin-bottom: 14px;
   font-size: 1.1rem;
   color: #f0f0f0; /* Light text for dark mode */
 }
