@@ -6,7 +6,7 @@ function Dog() {
     <section id="dog" className="dog-section">
       <div className="dog-content">
         <h2>Dog</h2>
-        <img src="/banjo.jpeg" alt="Banjo the dog" className="dog-photo" />
+        <img src="/portfolio/banjo.jpeg" alt="Banjo the dog" className="dog-photo" />
         
         <p>This is my dog! His name is Banjo</p>
       </div>
