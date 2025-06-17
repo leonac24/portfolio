@@ -16,10 +16,10 @@ function App() {
       <Navbar aboutSectionRef={aboutSectionRef} />
       <main>
         <About ref={aboutSectionRef} />
-        <WorkExperience />
-        <LeadershipAndInvolvement />
         <Skills />
+        <WorkExperience />
         <Projects />
+        <LeadershipAndInvolvement />
         <Contact />
       </main>
     </div>
