@@ -1,10 +1,23 @@
 import React from 'react';
 import './About.css';
+import { TypeAnimation } from 'react-type-animation';
 
 function About() {
   return (
     <section id="about" className="about-section">
-      <h2>Leona Chen</h2>
+      <h2>
+        <TypeAnimation
+          sequence={[
+            'Leona Chen',
+            1000,
+            'Leona Chen',
+            1000,
+          ]}
+          wrapper="span"
+          speed={50}
+          repeat={Infinity}
+        />
+      </h2>
       <div className="profile-picture">
         <img src="/portfolio/profilepic.jpg" alt="Leona Chen" />
       </div>
