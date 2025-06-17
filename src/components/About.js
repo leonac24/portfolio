@@ -10,7 +10,11 @@ function About() {
           sequence={[
             'Leona Chen',
             1000,
-            'Leona Chen',
+            'Software Engineer',
+            1000,
+            'ML Enthusiast',
+            1000,
+            'Dog Lover',
             1000,
           ]}
           wrapper="span"
