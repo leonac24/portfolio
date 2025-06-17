@@ -8,13 +8,13 @@ function About() {
       <h2>
         <TypeAnimation
           sequence={[
-            'Leona Chen',
+            'My name is Leona Chen',
             1000,
-            'Software Engineer',
+            'My name is Leona Chen and I\'m a Software Engineer',
             1000,
-            'ML Enthusiast',
+            'My name is Leona Chen and I\'m an ML Enthusiast',
             1000,
-            'Dog Lover',
+            'My name is Leona Chen and I\'m a Dog Lover',
             1000,
           ]}
           wrapper="span"
