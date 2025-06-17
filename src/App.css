@@ -2,6 +2,7 @@ body {
   margin: 0;
   background-color: #ddcdfd;  /* Light gray background */
   font-family: 'Quicksand', Arial, sans-serif;
+  font-weight: 400;
 }
 
 .App {
@@ -32,6 +33,7 @@ h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   color: #333;
+  font-weight: 600;
 }
 
 .App img {
