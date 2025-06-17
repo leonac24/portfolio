@@ -50,6 +50,9 @@ const About = forwardRef((props, ref) => {
             I'm looking to specialize in AI and machine learning engineering.
           </p>
         </div>
+        <a href="/portfolio/Leona Chen Resume.pdf" download="Leona Chen Resume.pdf" className="resume-download-btn">
+          Download Resume
+        </a>
       </div>
     </section>
   );
