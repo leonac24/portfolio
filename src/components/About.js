@@ -10,7 +10,7 @@ function About() {
           sequence={[
             'My name is Leona Chen',
             1000,
-            'My name is Leona Chen and I\'m a Software Engineer',
+            'My name is Leona Chen and I\'m a problem s',
             1000,
             'My name is Leona Chen and I\'m an ML Enthusiast',
             1000,
