@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './About.css';
 import './animations.css';
 import { TypeAnimation } from 'react-type-animation';
 import { useIntersectionObserver } from './useIntersectionObserver';
 
-function About() {
-  const [ref, isVisible] = useIntersectionObserver();
+const About = forwardRef((props, ref) => {
+  const [internalRef, isVisible] = useIntersectionObserver();
+
+  // Combine the internal ref with the forwarded ref
+  const setRefs = (node) => {
+    internalRef.current = node;
+    if (typeof ref === 'function') {
+      ref(node);
+    } else if (ref) {
+      ref.current = node;
+    }
+  };
 
   return (
-    <section id="about" ref={ref} className={`about-section fade-in ${isVisible ? 'visible' : ''}`}>
+    <section id="about" ref={setRefs} className={`about-section fade-in ${isVisible ? 'visible' : ''}`}>
       <h2>
         <TypeAnimation
           sequence={[
@@ -32,18 +42,13 @@ function About() {
       <div className="about-content">
         <div className="about-text">
           <p>
-            Hi! My name is Leona and I'm a junior at Penn State majoring in Computer Science and minoring in Math.
-          </p>
-          <p>
+            Hi! My name is Leona and I'm a junior at Penn State majoring in Computer Science and minoring in Math!
             I'm looking to specialize in AI and machine learning engineering.
-          </p>
-          <p>
-            When I'm not coding, you can find me hanging out with my dog Banjo.
           </p>
         </div>
       </div>
     </section>
   );
-}
+});
 
 export default About; 

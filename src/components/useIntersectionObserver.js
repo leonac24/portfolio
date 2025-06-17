@@ -9,6 +9,7 @@ export const useIntersectionObserver = (options = {}) => {
       setIsIntersecting(entry.isIntersecting);
     }, {
       threshold: 0.1,
+      rootMargin: '0px',
       ...options
     });
 

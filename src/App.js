@@ -1,21 +1,24 @@
+import React, { useRef } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import WorkExperience from './components/WorkExperience';
-import Dog from './components/Dog';
+import Skills from './components/Skills';
 
 function App() {
+  const aboutSectionRef = useRef(null);
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar aboutSectionRef={aboutSectionRef} />
       <main>
-        <About />
+        <About ref={aboutSectionRef} />
         <WorkExperience />
+        <Skills />
         <Projects />
         <Contact />
-        <Dog />
       </main>
     </div>
   );

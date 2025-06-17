@@ -1,6 +1,7 @@
 .about-section {
   padding: 60px 0;
   text-align: center;
+  background-color: #282c34; /* Lighter background for the About section */
 }
 
 .profile-picture {
@@ -27,5 +28,5 @@
 .about-text p {
   margin-bottom: 15px;
   font-size: 1.1rem;
-  color: #333;
+  color: #f0f0f0; /* Light text for dark mode */
 }

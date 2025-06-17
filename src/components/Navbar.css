@@ -1,13 +1,24 @@
 .navbar {
-  background: #ffffff;
-  height: 80px;
+  background: rgba(40, 44, 52, 0.85); /* Semi-transparent dark background */
+  height: 80px; /* Thick state */
   display: flex;
   justify-content: center;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 999;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: height 0.3s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+  backdrop-filter: blur(8px); /* Add blur effect */
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+}
+
+.navbar-thin {
+  height: 60px; /* Thin state */
+  background: rgba(40, 44, 52, 0.6); /* More transparent when thin */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px); /* Slightly more blur when thin */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
 }
 
 .navbar-container {
@@ -20,7 +31,7 @@
 }
 
 .navbar-logo {
-  color: #000000;
+  color: #e0e0e0;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
@@ -30,7 +41,7 @@
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
-  color: #000000;
+  color: #e0e0e0;
 }
 
 .nav-menu {
@@ -43,13 +54,18 @@
 }
 
 .nav-item {
-  height: 80px;
+  height: 80px; /* Thick state for nav items */
   display: flex;
   align-items: center;
+  transition: height 0.3s ease-in-out; /* Smooth transition */
+}
+
+.navbar-thin .nav-item {
+  height: 60px; /* Thin state for nav items */
 }
 
 .nav-link {
-  color: #000000;
+  color: #e0e0e0;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -59,7 +75,7 @@
 }
 
 .nav-link:hover {
-  color: #09f;
+  color: #61dafb;
   transition: all 0.2s ease-in-out;
 }
 
@@ -72,13 +88,24 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 80px); /* Thick mobile menu height */
     position: absolute;
-    top: 80px;
+    top: 80px; /* Thick mobile menu top position */
     left: -100%;
     opacity: 1;
-    transition: all 0.5s ease;
-    background: #ffffff;
+    transition: all 0.5s ease; /* Transition for slide-in */
+    background: rgba(40, 44, 52, 0.85); /* Semi-transparent dark background for mobile menu */
+    transition: height 0.3s ease-in-out, top 0.3s ease-in-out, background 0.3s ease-in-out; /* Smooth transitions for mobile */
+    backdrop-filter: blur(8px); /* Add blur effect to mobile menu */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+  }
+
+  .navbar-menu-thin {
+    height: calc(100vh - 60px); /* Thin mobile menu height */
+    top: 60px; /* Thin mobile menu top position */
+    background: rgba(40, 44, 52, 0.6); /* More transparent when thin */
+    backdrop-filter: blur(12px); /* Slightly more blur when thin */
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
   }
 
   .nav-menu.active {
@@ -89,7 +116,7 @@
   }
 
   .nav-item {
-    height: 60px;
+    height: 60px; /* Default height for mobile nav items */
     width: 100%;
   }
 
@@ -101,8 +128,8 @@
   }
 
   .nav-link:hover {
-    background-color: #f8f8f8;
-    color: #09f;
+    background-color: #1c1e21;
+    color: #4dcfff;
     transition: all 0.2s ease;
   }
 }
