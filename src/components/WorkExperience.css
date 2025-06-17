@@ -61,6 +61,12 @@
   margin-bottom: 15px;
 }
 
+.experience-location {
+  font-size: 1rem;
+  color: #c8c7c7; /* Lighter grey for years/location */
+  margin-bottom: 15px;
+}
+
 .experience-description {
   list-style-type: disc;
   margin-left: 20px;
