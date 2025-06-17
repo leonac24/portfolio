@@ -47,10 +47,10 @@ function Navbar() {
         </div>
         <div className={`nav-menu ${isOpen ? 'active' : ''} ${isThin ? 'navbar-menu-thin' : ''}`}>
           <a href="#about" className="nav-item" onClick={closeMenu}>About</a>
-          <a href="#work-experience" className="nav-item" onClick={closeMenu}>Work Experience</a>
-          <a href="#leadership-involvement" className="nav-item" onClick={closeMenu}>Leadership & Involvement</a>
-          <a href="#projects" className="nav-item" onClick={closeMenu}>Projects</a>
           <a href="#skills" className="nav-item" onClick={closeMenu}>Skills</a>
+          <a href="#work-experience" className="nav-item" onClick={closeMenu}>Work Experience</a>
+          <a href="#projects" className="nav-item" onClick={closeMenu}>Projects</a>
+          <a href="#leadership-involvement" className="nav-item" onClick={closeMenu}>Leadership & Involvement</a>
           <a href="#contact" className="nav-item" onClick={closeMenu}>Contact</a>
         </div>
       </div>
