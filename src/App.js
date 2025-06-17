@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import WorkExperience from './components/WorkExperience';
 import Skills from './components/Skills';
+import LeadershipAndInvolvement from './components/LeadershipAndInvolvement';
 
 function App() {
   const aboutSectionRef = useRef(null);
@@ -16,6 +17,7 @@ function App() {
       <main>
         <About ref={aboutSectionRef} />
         <WorkExperience />
+        <LeadershipAndInvolvement />
         <Skills />
         <Projects />
         <Contact />

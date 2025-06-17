@@ -1,0 +1,52 @@
+.leadership-involvement-section {
+  padding: 60px 0;
+  text-align: center;
+  background-color: #282c34; /* Matches other sections */
+}
+
+.involvements-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.involvement-card {
+  background-color: #3a3f4a; /* Lighter background for cards */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.involvement-card h3 {
+  font-size: 1.8rem;
+  color: #e0e0e0; /* Lighter headings */
+  margin-bottom: 10px;
+}
+
+.involvement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.involvement-years,
+.involvement-location {
+  font-size: 1rem;
+  color: #a0a0a0; /* Lighter grey for years/location */
+  margin-bottom: 15px;
+}
+
+.involvement-description {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 1.1rem;
+  color: #f0f0f0; /* Light text */
+}
+
+.involvement-description li {
+  margin-bottom: 8px;
+} 
