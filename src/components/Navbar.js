@@ -39,7 +39,7 @@ function Navbar() {
   return (
     <nav className={`navbar ${isThin ? 'navbar-thin' : ''}`}>
       <div className="navbar-container">
-        <a href="/" className="navbar-logo" onClick={closeMenu}>
+        <a href="/portfolio/" className="navbar-logo" onClick={closeMenu}>
           Leona Chen
         </a>
         <div className="menu-icon" onClick={toggleMenu}>
