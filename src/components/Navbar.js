@@ -45,23 +45,14 @@ function Navbar() {
         <div className="menu-icon" onClick={toggleMenu}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </div>
-        <ul className={`nav-menu ${isOpen ? 'active' : ''} ${isThin ? 'navbar-menu-thin' : ''}`}>
-          <li className="nav-item">
-            <a href="#about" className="nav-link" onClick={closeMenu}>About</a>
-          </li>
-          <li className="nav-item">
-            <a href="#work-experience" className="nav-link" onClick={closeMenu}>Work Experience</a>
-          </li>
-          <li className="nav-item">
-            <a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a>
-          </li>
-          <li className="nav-item">
-            <a href="#skills" className="nav-link" onClick={closeMenu}>Skills</a>
-          </li>
-          <li className="nav-item">
-            <a href="#contact" className="nav-link" onClick={closeMenu}>Contact</a>
-          </li>
-        </ul>
+        <div className={`nav-menu ${isOpen ? 'active' : ''} ${isThin ? 'navbar-menu-thin' : ''}`}>
+          <a href="#about" className="nav-item" onClick={closeMenu}>About</a>
+          <a href="#work-experience" className="nav-item" onClick={closeMenu}>Work Experience</a>
+          <a href="#leadership-involvement" className="nav-item" onClick={closeMenu}>Leadership & Involvement</a>
+          <a href="#projects" className="nav-item" onClick={closeMenu}>Projects</a>
+          <a href="#skills" className="nav-item" onClick={closeMenu}>Skills</a>
+          <a href="#contact" className="nav-item" onClick={closeMenu}>Contact</a>
+        </div>
       </div>
     </nav>
   );
