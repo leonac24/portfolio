@@ -10,6 +10,7 @@ function WorkExperience() {
     {
       title: 'Technology Intern',
       company: 'Penn State Department of Mathematics',
+      location: 'Remote',
       years: 'May 2025 - Present',
       description: [
         'Enhanced Matrices, Multivariable Calculus, and Ordinary and Partial Differential Equations online Pressbooks',
@@ -20,6 +21,7 @@ function WorkExperience() {
     {
       title: 'Artificial Intelligence/Machine Learning Instructor Assistant',
       company: 'Kode With Klossy',
+      location: 'Remote',
       years: 'March 2025 - Present',
       description: [
         'Taught basic machine learning principles to middle/high school students of traditionally underrepresented genders in tech',
@@ -29,6 +31,7 @@ function WorkExperience() {
     {
       title: 'Research Intern',
       company: 'James Z. Wang Research Group',
+      location: 'University Park, PA',
       years: 'January 2025 - Present',
       description: [
         'Researched biases present in LLMs regarding emotions within the area of affective computing',
@@ -39,6 +42,7 @@ function WorkExperience() {
     {
       title: 'International Student Services Assistant',
       company: 'Penn State Global',
+      location: 'University Park, PA',
       years: 'September 2024 - Present',
       description: [
         'Provided front-desk assistance to Penn State\'s over 9,000 international students and scholars',
@@ -56,6 +60,7 @@ function WorkExperience() {
           <div key={index} className="experience-card">
             <h3>{exp.title} @ {exp.company}</h3>
             <p className="experience-years">{exp.years}</p>
+            <p className="experience-location">{exp.location}</p>
             <ul className="experience-description">
               {exp.description.map((desc, i) => (
                 <li key={i}>{desc}</li>
