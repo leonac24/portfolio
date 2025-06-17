@@ -1,10 +1,11 @@
 import React from 'react';
 import './About.css';
+import './animations.css';
 import { TypeAnimation } from 'react-type-animation';
 
 function About() {
   return (
-    <section id="about" className="about-section">
+    <section id="about" className="about-section fade-in">
       <h2>
         <TypeAnimation
           sequence={[
@@ -13,9 +14,9 @@ function About() {
             'My name is Leona Chen and I\'m a problem solver',
             2000,
             'My name is Leona Chen and I\'m an AI enthusiast',
-            1000,
+            2000,
             'My name is Leona Chen and I\'m a student',
-            1000,
+            2000,
           ]}
           wrapper="span"
           speed={50}

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Projects.css';
+import './animations.css';
 
 function Projects() {
   const projects = [
@@ -12,7 +13,7 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className="projects-section">
+    <section id="projects" className="projects-section fade-in">
       <h2>Projects</h2>
       <div className="projects-grid">
         {projects.map((project, index) => (
@@ -24,7 +25,7 @@ function Projects() {
                 <span key={i} className="tech-tag">{tech}</span>
               ))}
             </div>
-            <a href={project.link} className="project-link" target="_blank" rel="noopener noreferrer">
+            <a href={project.link} className="project-link highlight-link" target="_blank" rel="noopener noreferrer">
               View Project
             </a>
           </div>
