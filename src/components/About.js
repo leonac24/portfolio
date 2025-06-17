@@ -10,11 +10,11 @@ function About() {
           sequence={[
             'My name is Leona Chen',
             1000,
-            'My name is Leona Chen and I\'m a problem s',
+            'My name is Leona Chen and I\'m a problem solver',
+            2000,
+            'My name is Leona Chen and I\'m an AI enthusiast',
             1000,
-            'My name is Leona Chen and I\'m an ML Enthusiast',
-            1000,
-            'My name is Leona Chen and I\'m a Dog Lover',
+            'My name is Leona Chen and I\'m a student',
             1000,
           ]}
           wrapper="span"
@@ -28,10 +28,10 @@ function About() {
       <div className="about-content">
         <div className="about-text">
           <p>
-            Hi, I'm Leona Chen! I'm a junior at Penn State majoring in Computer Science and minoring in Math.
+            Hi! My name is Leona and I'm a junior at Penn State majoring in Computer Science and minoring in Math.
           </p>
           <p>
-            Looking to specialize in Machine Learning Engineering.
+            I'm looking to specialize in AI and machine learning engineering.
           </p>
           <p>
             When I'm not coding, you can find me hanging out with my dog Banjo.
