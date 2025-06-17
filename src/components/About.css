@@ -1,0 +1,31 @@
+.about-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.profile-picture {
+  margin-bottom: 30px;
+}
+
+.profile-picture img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-text {
+  text-align: left;
+  line-height: 1.6;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: #333;
+}
