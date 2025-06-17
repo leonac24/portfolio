@@ -2,10 +2,13 @@ import React from 'react';
 import './About.css';
 import './animations.css';
 import { TypeAnimation } from 'react-type-animation';
+import { useIntersectionObserver } from './useIntersectionObserver';
 
 function About() {
+  const [ref, isVisible] = useIntersectionObserver();
+
   return (
-    <section id="about" className="about-section fade-in">
+    <section id="about" ref={ref} className={`about-section fade-in ${isVisible ? 'visible' : ''}`}>
       <h2>
         <TypeAnimation
           sequence={[

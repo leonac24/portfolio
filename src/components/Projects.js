@@ -1,8 +1,11 @@
 import React from 'react';
 import './Projects.css';
 import './animations.css';
+import { useIntersectionObserver } from './useIntersectionObserver';
 
 function Projects() {
+  const [ref, isVisible] = useIntersectionObserver();
+
   const projects = [
     {
       title: "RAGatha",
@@ -13,7 +16,7 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className="projects-section fade-in">
+    <section id="projects" ref={ref} className={`projects-section fade-in ${isVisible ? 'visible' : ''}`}>
       <h2>Projects</h2>
       <div className="projects-grid">
         {projects.map((project, index) => (

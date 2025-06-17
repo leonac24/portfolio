@@ -2,10 +2,13 @@ import React from 'react';
 import './Contact.css';
 import './animations.css';
 import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { useIntersectionObserver } from './useIntersectionObserver';
 
 const Contact = () => {
+  const [ref, isVisible] = useIntersectionObserver();
+
   return (
-    <section id="contact" className="contact-section fade-in">
+    <section id="contact" ref={ref} className={`contact-section fade-in ${isVisible ? 'visible' : ''}`}>
       <div className="contact-content">
         <div className="contact-info">
           <h2>Contact</h2>
