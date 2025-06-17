@@ -26,9 +26,13 @@ const About = forwardRef((props, ref) => {
             1000,
             'My name is Leona Chen and I\'m a problem solver',
             2000,
+            'My name is Leona Chen and I\'m a avid developer',
+            2000,
+            'My name is Leona Chen and I\'m a computer scientist',
+            2000,
             'My name is Leona Chen and I\'m an AI enthusiast',
             2000,
-            'My name is Leona Chen and I\'m a student',
+            'My name is Leona Chen and I\'m a lifelong learner',
             2000,
           ]}
           wrapper="span"
