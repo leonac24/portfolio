@@ -41,7 +41,7 @@ const About = forwardRef((props, ref) => {
         />
       </h2>
       <div className="profile-picture">
-        <img src="/portfolio/profilepic.jpg" alt="Leona Chen" />
+        <img src="/portfolio/profilepic.png" alt="Leona Chen" />
       </div>
       <div className="about-content">
         <div className="about-text">
