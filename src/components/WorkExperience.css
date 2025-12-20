@@ -10,6 +10,10 @@
 /* Carousel wrapper */
 .work-carousel {
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .experiences-container {
@@ -20,7 +24,9 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   /* side padding lets the first/last card center on snap */
-  padding: 24px calc(50% - (var(--card-width) / 2));
+  padding: 24px max(12px, calc(50% - (var(--card-width) / 2)));
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .experience-card {
