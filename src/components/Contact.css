@@ -1,6 +1,6 @@
 .contact-section {
   padding: 54px 0;
-  background-color: #282c34;
+  background-color: #fff8f8;
 }
 
 .contact-content {
@@ -24,21 +24,21 @@
   color: #fff;
   text-decoration: none;
   padding: 11px 29px;
-  background-color: #7c3aed;
+  background-color: #ed3a3a;
   border: none;
   border-radius: 5px;
   display: flex;
   align-items: center;
   gap: 7px;
-  box-shadow: 0 3.6px 7.2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3.6px 7.2px rgba(153, 30, 86, 0.16);
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .contact-link:hover {
-  background-color: #5b21b6;
+  background-color: #ffb2b2;
   transform: translateY(-2.7px);
-  box-shadow: 0 7.2px 14.4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 7.2px 14.4px rgba(153, 30, 86, 0.20);
 }
 
 .contact-icon {

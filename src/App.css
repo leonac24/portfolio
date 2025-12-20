@@ -1,9 +1,14 @@
 body {
   margin: 0;
-  background-color: #121212;  /* Even darker background for the body */
+  background-color: #ffffff;  /* Even darker background for the body */
   font-family: 'Quicksand', Arial, sans-serif;
   font-weight: 400;
-  color: #f0f0f0; /* Light text color */
+  color: #000000; 
+}
+
+:root {
+  --card-width: 320px;
+  --card-min-width: 300px;
 }
 
 .App {
@@ -11,7 +16,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #191919;  /* Even darker app container background */
+  background-color: #ffffff;  /* Even darker app container background */
 }
 
 main {
@@ -25,15 +30,15 @@ main {
 section {
   margin: 40px 0;
   padding: 20px;
-  background-color: #282c34;  /* Lighter background for sections/cards */
+  background-color: #fff8f8;  /* Lighter background for sections/cards */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjusted shadow for darker background */
+  box-shadow: 0 4px 8px rgba(153, 30, 86, 0.16); /* dark-pink shadow */
 }
 
 h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #e0e0e0; /* Lighter headings */
+  color: #000000; /* Lighter headings */
   font-weight: 600;
 }
 
@@ -46,4 +51,10 @@ h2 {
 html {
   scroll-behavior: smooth;
   font-size: 90%; /* Reduce base font size for overall scaling */
+}
+
+/* Force all text to black across the site */
+/* This overrides component-level color declarations so all text appears #000000 */
+body, body * {
+  color: #000000 !important;
 }

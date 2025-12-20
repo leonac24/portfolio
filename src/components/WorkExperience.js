@@ -1,10 +1,55 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import './WorkExperience.css';
 import './animations.css';
 import { useIntersectionObserver } from './useIntersectionObserver';
 
 function WorkExperience() {
   const [ref, isVisible] = useIntersectionObserver();
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    let rafId = null;
+
+    const getCards = () => Array.from(el.querySelectorAll('.experience-card'));
+
+    function updateActive() {
+      const center = el.scrollLeft + el.clientWidth / 2;
+      const cards = getCards();
+      let min = Infinity;
+      let active = null;
+
+      cards.forEach((card) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const dist = Math.abs(cardCenter - center);
+        if (dist < min) {
+          min = dist;
+          active = card;
+        }
+      });
+
+      cards.forEach((card) => card.classList.toggle('active', card === active));
+    }
+
+    function onScroll() {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateActive);
+    }
+
+    el.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    // initial
+    updateActive();
+
+    return () => {
+      el.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   const experiences = [
     {
@@ -22,7 +67,7 @@ function WorkExperience() {
       title: 'Artificial Intelligence/Machine Learning Instructor Assistant',
       company: 'Kode With Klossy',
       location: 'Remote',
-      years: 'March 2025 - Present',
+      years: 'March 2025 - August 2025',
       description: [
         'Taught basic machine learning principles to middle/high school students of traditionally underrepresented genders in tech',
         'Instructed on supervised learning, image classification, sentiment analysis, neural networks, semantic search, and RAG',
@@ -55,19 +100,85 @@ function WorkExperience() {
   return (
     <section id="work-experience" ref={ref} className={`work-experience-section fade-in ${isVisible ? 'visible' : ''}`}>
       <h2>Work Experience</h2>
-      <div className="experiences-container">
-        {experiences.map((exp, index) => (
-          <div key={index} className="experience-card">
-            <h3>{exp.title} @ {exp.company}</h3>
-            <p className="experience-years">{exp.years}</p>
-            <p className="experience-location">{exp.location}</p>
-            <ul className="experience-description">
-              {exp.description.map((desc, i) => (
-                <li key={i}>{desc}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+
+      <div className="work-carousel">
+        <button
+          className="carousel-control prev"
+          aria-label="Previous experience"
+          onClick={() => {
+            const el = containerRef.current;
+            if (!el) return;
+            const cards = Array.from(el.querySelectorAll('.experience-card'));
+            if (!cards.length) return;
+
+            // find active card (fallback to nearest to center)
+            let activeIndex = cards.findIndex(c => c.classList.contains('active'));
+            if (activeIndex === -1) {
+              const center = el.scrollLeft + el.clientWidth / 2;
+              let min = Infinity;
+              cards.forEach((card, i) => {
+                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+                const dist = Math.abs(cardCenter - center);
+                if (dist < min) { min = dist; activeIndex = i; }
+              });
+            }
+
+            const targetIndex = Math.max(0, activeIndex - 1);
+            const targetCard = cards[targetIndex];
+            const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+            el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+          }}
+        >
+          ‹
+        </button>
+
+        <div
+          className="experiences-container"
+          ref={containerRef}
+        >
+          {experiences.map((exp, index) => (
+            <div key={index} className="experience-card">
+              <h3>{exp.title} @ {exp.company}</h3>
+              <p className="experience-years">{exp.years}</p>
+              <p className="experience-location">{exp.location}</p>
+              <ul className="experience-description">
+                {exp.description.map((desc, i) => (
+                  <li key={i}>{desc}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <button
+          className="carousel-control next"
+          aria-label="Next experience"
+          onClick={() => {
+            const el = containerRef.current;
+            if (!el) return;
+            const cards = Array.from(el.querySelectorAll('.experience-card'));
+            if (!cards.length) return;
+
+            // find active card (fallback to nearest to center)
+            let activeIndex = cards.findIndex(c => c.classList.contains('active'));
+            if (activeIndex === -1) {
+              const center = el.scrollLeft + el.clientWidth / 2;
+              let min = Infinity;
+              cards.forEach((card, i) => {
+                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+                const dist = Math.abs(cardCenter - center);
+                if (dist < min) { min = dist; activeIndex = i; }
+              });
+            }
+
+            const targetIndex = Math.min(cards.length - 1, activeIndex + 1);
+            const targetCard = cards[targetIndex];
+            const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+            el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+          }}
+        >
+          ›
+        </button>
       </div>
     </section>
   );

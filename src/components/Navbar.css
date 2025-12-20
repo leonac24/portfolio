@@ -1,24 +1,20 @@
 .navbar {
-  background: rgba(40, 44, 52, 0.85); /* Semi-transparent dark background */
-  height: 72px; /* Thick state (80 * 0.9) */
+  background: #ffffff; /* solid white navbar */
+  height: 72px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 999;
-  box-shadow: 0 3.6px 7.2px rgba(0, 0, 0, 0.2); /* (0 4px 8px * 0.9) */
-  transition: height 0.3s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
-  backdrop-filter: blur(7.2px); /* Add blur effect (8 * 0.9) */
-  -webkit-backdrop-filter: blur(7.2px); /* Safari support */
+  box-shadow: none; /* removed shadow */
+  transition: height 0.3s ease-in-out; /* keep height transition only */
 }
 
 .navbar-thin {
   height: 54px; /* Thin state (60 * 0.9) */
-  background: rgba(40, 44, 52, 0.6); /* More transparent when thin */
-  box-shadow: 0 1.8px 4.5px rgba(0, 0, 0, 0.15); /* (0 2px 5px * 0.9) */
-  backdrop-filter: blur(10.8px); /* Slightly more blur when thin (12 * 0.9) */
-  -webkit-backdrop-filter: blur(10.8px); /* Safari support */
+  background: #ffffff;
+  box-shadow: none;
 }
 
 .navbar-container {
@@ -31,7 +27,7 @@
 }
 
 .navbar-logo {
-  color: #e0e0e0;
+  color: #000000;
   text-decoration: none;
   font-size: 1.35rem; /* (1.5rem * 0.9) */
   font-weight: bold;
@@ -41,7 +37,7 @@
   display: none;
   font-size: 1.62rem; /* (1.8rem * 0.9) */
   cursor: pointer;
-  color: #e0e0e0;
+  color: #000000;
 }
 
 .nav-menu {
@@ -51,7 +47,7 @@
 }
 
 .nav-item {
-  color: #e0e0e0;
+  color: #000000;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -85,18 +81,13 @@
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease; /* Transition for slide-in */
-    background: rgba(40, 44, 52, 0.85); /* Semi-transparent dark background for mobile menu */
-    transition: height 0.3s ease-in-out, top 0.3s ease-in-out, background 0.3s ease-in-out; /* Smooth transitions for mobile */
-    backdrop-filter: blur(7.2px); /* Add blur effect to mobile menu (8 * 0.9) */
-    -webkit-backdrop-filter: blur(7.2px); /* Safari support */
+    background: #ffffff; /* solid white mobile menu */
   }
 
   .navbar-menu-thin {
     height: calc(100vh - 54px); /* Thin mobile menu height (60 * 0.9) */
     top: 54px; /* Thin mobile menu top position (60 * 0.9) */
-    background: rgba(40, 44, 52, 0.6); /* More transparent when thin */
-    backdrop-filter: blur(10.8px); /* Slightly more blur when thin (12 * 0.9) */
-    -webkit-backdrop-filter: blur(10.8px); /* Safari support */
+    background: #ffffff;
   }
 
   .nav-menu.active {
@@ -115,8 +106,8 @@
   }
 
   .nav-item:hover {
-    background-color: #1c1e21;
-    color: #4dcfff;
+    background-color: #f1f1f1;
+    color: #000000;
     transition: all 0.2s ease;
   }
 }

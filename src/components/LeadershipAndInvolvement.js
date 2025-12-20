@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import './LeadershipAndInvolvement.css';
 import './animations.css';
 import { useIntersectionObserver } from './useIntersectionObserver';
@@ -53,22 +53,129 @@ function LeadershipAndInvolvement() {
     },
   ];
 
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    let rafId = null;
+
+    const getCards = () => Array.from(el.querySelectorAll('.involvement-card'));
+
+    function updateActive() {
+      const center = el.scrollLeft + el.clientWidth / 2;
+      const cards = getCards();
+      let min = Infinity;
+      let active = null;
+
+      cards.forEach((card) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const dist = Math.abs(cardCenter - center);
+        if (dist < min) {
+          min = dist;
+          active = card;
+        }
+      });
+
+      cards.forEach((card) => card.classList.toggle('active', card === active));
+    }
+
+    function onScroll() {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateActive);
+    }
+
+    el.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    // initial
+    updateActive();
+
+    return () => {
+      el.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
     <section id="leadership-involvement" ref={ref} className={`leadership-involvement-section fade-in ${isVisible ? 'visible' : ''}`}>
       <h2>Leadership & Involvement</h2>
-      <div className="involvements-container">
-        {involvements.map((inv, index) => (
-          <div key={index} className="involvement-card">
-            <h3>{inv.title} @ {inv.company}</h3>
-            <p className="involvement-years">{inv.years}</p>
-            <p className="involvement-location">{inv.location}</p>
-            <ul className="involvement-description">
-              {inv.description.map((desc, i) => (
-                <li key={i}>{desc}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+
+      <div className="work-carousel">
+        <button
+          className="carousel-control prev"
+          aria-label="Previous involvement"
+          onClick={() => {
+            const el = containerRef.current;
+            if (!el) return;
+            const cards = Array.from(el.querySelectorAll('.involvement-card'));
+            if (!cards.length) return;
+
+            let activeIndex = cards.findIndex(c => c.classList.contains('active'));
+            if (activeIndex === -1) {
+              const center = el.scrollLeft + el.clientWidth / 2;
+              let min = Infinity;
+              cards.forEach((card, i) => {
+                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+                const dist = Math.abs(cardCenter - center);
+                if (dist < min) { min = dist; activeIndex = i; }
+              });
+            }
+
+            const targetIndex = Math.max(0, activeIndex - 1);
+            const targetCard = cards[targetIndex];
+            const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+            el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+          }}
+        >
+          ‹
+        </button>
+
+        <div className="involvements-container" ref={containerRef}>
+          {involvements.map((inv, index) => (
+            <div key={index} className="involvement-card">
+              <h3>{inv.title} @ {inv.company}</h3>
+              <p className="involvement-years">{inv.years}</p>
+              <p className="involvement-location">{inv.location}</p>
+              <ul className="involvement-description">
+                {inv.description.map((desc, i) => (
+                  <li key={i}>{desc}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <button
+          className="carousel-control next"
+          aria-label="Next involvement"
+          onClick={() => {
+            const el = containerRef.current;
+            if (!el) return;
+            const cards = Array.from(el.querySelectorAll('.involvement-card'));
+            if (!cards.length) return;
+
+            let activeIndex = cards.findIndex(c => c.classList.contains('active'));
+            if (activeIndex === -1) {
+              const center = el.scrollLeft + el.clientWidth / 2;
+              let min = Infinity;
+              cards.forEach((card, i) => {
+                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+                const dist = Math.abs(cardCenter - center);
+                if (dist < min) { min = dist; activeIndex = i; }
+              });
+            }
+
+            const targetIndex = Math.min(cards.length - 1, activeIndex + 1);
+            const targetCard = cards[targetIndex];
+            const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+            el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+          }}
+        >
+          ›
+        </button>
       </div>
     </section>
   );

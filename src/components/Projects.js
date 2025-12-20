@@ -13,6 +13,12 @@ function Projects() {
       technologies: ["Python", "Langchain", "ChromA", "Tkinter"],
       link: "https://github.com/aryanxsabnekar/RAG_Chatbot"
     },
+    {
+      title: "Nomble",
+      description: "Nomble is a placeholder project showcasing a flipped card UI. This card includes sample features and skills for demonstration purposes.",
+      technologies: ["React", "CSS3", "Figma", "Node.js"],
+      link: "#"
+    },
   ];
 
   return (
@@ -21,16 +27,23 @@ function Projects() {
       <div className="projects-grid">
         {projects.map((project, index) => (
           <div key={index} className="project-card">
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <div className="technologies">
-              {project.technologies.map((tech, i) => (
-                <span key={i} className="tech-tag">{tech}</span>
-              ))}
+            <div className="card-inner">
+              <div className="card-front">
+                <div className="card-front-title">{project.title}</div>
+              </div>
+              <div className="card-back">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="technologies">
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} className="tech-tag">{tech}</span>
+                  ))}
+                </div>
+                <a href={project.link} className="project-link highlight-link" target="_blank" rel="noopener noreferrer">
+                  View Project
+                </a>
+              </div>
             </div>
-            <a href={project.link} className="project-link highlight-link" target="_blank" rel="noopener noreferrer">
-              View Project
-            </a>
           </div>
         ))}
       </div>
