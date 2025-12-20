@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './LeadershipAndInvolvement.css';
 import './animations.css';
 import { useIntersectionObserver } from './useIntersectionObserver';
 
 function LeadershipAndInvolvement() {
   const [ref, isVisible] = useIntersectionObserver();
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const involvements = [
     {
@@ -79,6 +80,12 @@ function LeadershipAndInvolvement() {
       });
 
       cards.forEach((card) => card.classList.toggle('active', card === active));
+
+      // Update active index for indicator buttons
+      if (active) {
+        const index = cards.indexOf(active);
+        setActiveIndex(index);
+      }
     }
 
     function onScroll() {
@@ -97,7 +104,17 @@ function LeadershipAndInvolvement() {
       window.removeEventListener('resize', onScroll);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [setActiveIndex]);
+
+  const scrollToCard = (index) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const cards = Array.from(el.querySelectorAll('.involvement-card'));
+    if (!cards[index]) return;
+    const targetCard = cards[index];
+    const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+    el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+  };
 
   return (
     <section id="leadership-involvement" ref={ref} className={`leadership-involvement-section fade-in ${isVisible ? 'visible' : ''}`}>
@@ -135,7 +152,11 @@ function LeadershipAndInvolvement() {
 
         <div className="involvements-container" ref={containerRef}>
           {involvements.map((inv, index) => (
-            <div key={index} className="involvement-card">
+            <div 
+              key={index} 
+              className="involvement-card"
+              onClick={() => scrollToCard(index)}
+            >
               <h3>{inv.title} @ {inv.company}</h3>
               <p className="involvement-years">{inv.years}</p>
               <p className="involvement-location">{inv.location}</p>
@@ -176,6 +197,17 @@ function LeadershipAndInvolvement() {
         >
           ›
         </button>
+      </div>
+
+      <div className="carousel-indicators">
+        {involvements.map((_, index) => (
+          <button
+            key={index}
+            className={`indicator-button ${activeIndex === index ? 'active' : ''}`}
+            onClick={() => scrollToCard(index)}
+            aria-label={`Go to involvement ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

@@ -64,6 +64,35 @@
   color: #000000; /* Light text for dark mode */
 }
 
+@media (max-width: 600px) {
+  .about-section {
+    padding: 36px 12px;
+  }
+  .about-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .profile-picture {
+    width: 140px;
+    margin: 20px auto 12px auto;
+  }
+  .about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .about-section h2 > span {
+    font-size: 1.8rem;
+  }
+  .resume-download-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .resume-download-btn {
   display: inline-block;
   margin-top: 27px;
