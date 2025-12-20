@@ -53,8 +53,3 @@ html {
   font-size: 90%; /* Reduce base font size for overall scaling */
 }
 
-/* Force all text to black across the site */
-/* This overrides component-level color declarations so all text appears #000000 */
-body, body * {
-  color: #000000 !important;
-}

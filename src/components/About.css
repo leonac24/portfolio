@@ -61,7 +61,7 @@
 .about-text p {
   margin-bottom: 14px;
   font-size: 1.6rem;
-  color: #f0f0f0; /* Light text for dark mode */
+  color: #000000; /* Light text for dark mode */
 }
 
 .resume-download-btn {
