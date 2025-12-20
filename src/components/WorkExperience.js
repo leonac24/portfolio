@@ -70,14 +70,30 @@ function WorkExperience() {
 
   const experiences = [
     {
-      title: 'Technology Intern',
-      company: 'Penn State Department of Mathematics',
-      location: 'Remote',
-      years: 'May 2025 - Present',
+      title: 'Incoming Associate Application Developer Co-Op',
+      company: 'IBM',
+      location: 'State College, PA',
+      years: 'January 2026 - May 2026',
       description: [
-        'Enhanced Matrices, Multivariable Calculus, and Ordinary and Partial Differential Equations online Pressbooks',
-        'Updated digital textbooks to comply with Web Content Accessibility Guidelines by integrating closed captioning',
-        'Embedded interactive learning components using H5P and LaTeX-rendered equations',
+        'Adobe Experience Platform Specialist / Engineer / Consultant',
+      ],
+    },
+    {
+      title: 'Incoming Software Engineering Intern',
+      company: 'PNC Financial Services',
+      location: 'Pittsburgh, PA',
+      years: 'June 2026 - August 2026',
+      description: [],
+    },
+    {
+      title: 'Research Intern',
+      company: 'James Z. Wang Research Group',
+      location: 'University Park, PA',
+      years: 'January 2025 - Present',
+      description: [
+        'Generated thousands of large-scale AI prompts via APIs to study cultural influences on emotional expression',
+        'Managed high-throughput data pipelines producing extensive datasets for AI alignment analysis',
+        'Synthesized AI outputs to investigate cross-cultural variations in emotional expression and inform alignment research',
       ],
     },
     {
@@ -86,19 +102,32 @@ function WorkExperience() {
       location: 'Remote',
       years: 'March 2025 - August 2025',
       description: [
-        'Taught basic machine learning principles to middle/high school students of traditionally underrepresented genders in tech',
+        'Taught basic machine learning principles to 40 high school students of underrepresented genders in technology',
         'Instructed on supervised learning, image classification, sentiment analysis, neural networks, semantic search, and RAG',
+        'Guided students through deploying capstone projects using tools including Hugging Face, scikit-learn, and TensorFlow',
       ],
     },
     {
-      title: 'Research Intern',
-      company: 'James Z. Wang Research Group',
-      location: 'University Park, PA',
-      years: 'January 2025 - Present',
+      title: 'CMPSC 132 Grader',
+      company: 'Penn State School of Electrical Engineering and Computer Science',
+      location: 'Remote',
+      years: 'August 2025 - December 2025',
       description: [
-        'Researched biases present in LLMs regarding emotions within the area of affective computing',
-        'Analyzed published research literature to support hypothesis formation and determine metrics for biases',
-        'Secured funding from the NASA Pennsylvania Space Grant Consortium PSU Undergraduate Research Internship Program',
+        'Graded Data Structures assignments in Python for over 200 students and provided actionable feedback',
+        'Guided students through debugging and complex concepts, enhancing understanding and retention',
+        'Collaborated with instructors to refine grading rubrics, streamline workflows, and maintain high-quality course delivery',
+      ],
+    },
+
+    {
+      title: 'Technology Intern',
+      company: 'Penn State Department of Mathematics',
+      location: 'Remote',
+      years: 'May 2025 - Present',
+      description: [
+        'Enhanced Matrices, Multivariable Calculus, and Ordinary and Partial Differential Equations online Pressbooks',
+        'Updated digital textbooks to comply with Web Content Accessibility Guidelines by integrating closed captioning',
+        'Embedded interactive learning components using H5P and LaTeX-rendered equations',
       ],
     },
     {
