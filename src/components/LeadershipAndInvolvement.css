@@ -7,6 +7,10 @@
 /* Carousel wrapper */
 .work-carousel {
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .involvements-container {
@@ -16,7 +20,9 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 24px calc(50% - (var(--card-width) / 2)); /* side padding allows edge centering */
+  padding: 24px max(12px, calc(50% - (var(--card-width) / 2))); /* side padding allows edge centering */
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .involvement-card {
