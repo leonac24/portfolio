@@ -31,4 +31,23 @@
 .skill-item:hover {
   transform: translateY(-2.7px);
   box-shadow: 0 7.2px 14.4px rgba(153, 30, 86, 0.20);
+}
+
+@media (max-width: 600px) {
+  .skills-section {
+    padding: 36px 0;
+  }
+  .skills-container {
+    padding: 0 12px;
+  }
+  .skills-list {
+    gap: 9px;
+  }
+  .skill-item {
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+  }
 } 

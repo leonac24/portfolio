@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './WorkExperience.css';
 import './animations.css';
 import { useIntersectionObserver } from './useIntersectionObserver';
@@ -6,6 +6,7 @@ import { useIntersectionObserver } from './useIntersectionObserver';
 function WorkExperience() {
   const [ref, isVisible] = useIntersectionObserver();
   const containerRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -31,6 +32,12 @@ function WorkExperience() {
       });
 
       cards.forEach((card) => card.classList.toggle('active', card === active));
+
+      // Update active index for indicator buttons
+      if (active) {
+        const index = cards.indexOf(active);
+        setActiveIndex(index);
+      }
     }
 
     function onScroll() {
@@ -49,7 +56,17 @@ function WorkExperience() {
       window.removeEventListener('resize', onScroll);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [setActiveIndex]);
+
+  const scrollToCard = (index) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const cards = Array.from(el.querySelectorAll('.experience-card'));
+    if (!cards[index]) return;
+    const targetCard = cards[index];
+    const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+    el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+  };
 
   const experiences = [
     {
@@ -137,7 +154,11 @@ function WorkExperience() {
           ref={containerRef}
         >
           {experiences.map((exp, index) => (
-            <div key={index} className="experience-card">
+            <div 
+              key={index} 
+              className="experience-card"
+              onClick={() => scrollToCard(index)}
+            >
               <h3>{exp.title} @ {exp.company}</h3>
               <p className="experience-years">{exp.years}</p>
               <p className="experience-location">{exp.location}</p>
@@ -179,6 +200,17 @@ function WorkExperience() {
         >
           ›
         </button>
+      </div>
+
+      <div className="carousel-indicators">
+        {experiences.map((_, index) => (
+          <button
+            key={index}
+            className={`indicator-button ${activeIndex === index ? 'active' : ''}`}
+            onClick={() => scrollToCard(index)}
+            aria-label={`Go to experience ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

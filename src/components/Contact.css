@@ -44,3 +44,30 @@
 .contact-icon {
   font-size: 1.08rem;
 }
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 36px 0;
+  }
+  .contact-content {
+    padding: 0 12px;
+  }
+  .contact-links {
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .contact-link {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    min-height: 44px;
+    flex: 1 1 calc(50% - 6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .contact-icon {
+    font-size: 1rem;
+  }
+}
