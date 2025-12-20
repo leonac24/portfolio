@@ -1,24 +1,56 @@
 .about-section {
-  padding: 54px 0;
-  text-align: center;
-  background-color: #282c34; /* Lighter background for the About section */
+  padding: 54px 18px;
+  text-align: left;
+  background-color: transparent; /* removed gray box for About section */
+  box-shadow: none; /* override global section shadow */
+  border-radius: 0; /* remove rounded corners so it sits flush */
 }
 
 .profile-picture {
-  margin-bottom: 27px;
+  margin: 40px 0 18px 0;
+  width: 200px;
+  aspect-ratio: 1 / 1; /* enforce square container */
+  border-radius: 50%;
+  overflow: hidden; /* ensure perfect circular crop */
+  flex: 0 0 auto; /* prevent flex from stretching the container */
 }
 
 .profile-picture img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
   object-fit: cover;
+  display: block;
+  margin: 0; /* ensure image aligns to left */
 }
 
 .about-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 18px;
+  width: 100%;
+  padding: 0 0 0 0; /* remove centering panel padding */
+}
+
+/* Row layout for profile + bio */
+.about-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.about-row .about-content {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 800px) {
+  .about-row {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .profile-picture img {
+    margin: 0 auto;
+  }
+  .profile-picture {
+    width: 160px; /* slightly smaller on small screens */
+  }
 }
 
 .about-text {
@@ -28,7 +60,7 @@
 
 .about-text p {
   margin-bottom: 14px;
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   color: #f0f0f0; /* Light text for dark mode */
 }
 
@@ -38,16 +70,37 @@
   color: #fff;
   text-decoration: none;
   padding: 11px 29px;
-  background-color: #7c3aed;
+  background-color: #ed3a3a;
   border: none;
   border-radius: 5px;
   font-weight: 600;
-  box-shadow: 0 3.6px 7.2px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  box-shadow: none; /* removed shadow */
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.about-section h2 {
+  text-align: left;
+  color: #000000;
+  margin-bottom: 36px; /* extra spacing below animated title */
 }
 
 .resume-download-btn:hover {
-  background-color: #5b21b6;
-  transform: translateY(-2.7px); /* ( -3px * 0.9) */
-  box-shadow: 0 7.2px 14.4px rgba(0, 0, 0, 0.3); /* (0 8px 16px * 0.9) */
+  background-color: #ffb2b2;
+  transform: translateY(-2.7px);
+  box-shadow: none; /* ensure no hover shadow */
+}
+
+.resume-download-btn {
+  margin-left: 0; /* ensure button is left aligned with text */
+}
+
+/* If the animation wraps in a span, make it prominent */
+.about-section h2 > span {
+  display: block;
+  font-weight: 700;
+}
+
+/* Make only the animated line larger */
+.about-section h2 > span {
+  font-size: 3.0rem;
 }

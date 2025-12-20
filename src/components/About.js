@@ -40,19 +40,23 @@ const About = forwardRef((props, ref) => {
           repeat={Infinity}
         />
       </h2>
-      <div className="profile-picture">
-        <img src="/portfolio/profilepic.png" alt="Leona Chen" />
-      </div>
-      <div className="about-content">
+      <div className="about-row">
+        <div className="profile-picture">
+          <img src="/portfolio/profilepic.png" alt="Leona Chen" />
+        </div>
+        <div className="about-content">
         <div className="about-text">
           <p>
-            Hi! My name is Leona and I'm a junior at Penn State majoring in Computer Science and minoring in Math!
-            I'm looking to specialize in AI and machine learning engineering.
+            Hi, my name is Leona and I'm a junior at Penn State majoring in Computer Science and minoring in Math! 
+            <br></br> • Currently at IBM as an Associate Application Developer, Adobe Experience Platform Specialist/Engineer/Consultant.
+            <br></br> • Incoming SWE Intern at PNC for Summer 2026.
+            <br></br>Looking to specialize in AI and machine learning engineering.
           </p>
         </div>
         <a href="/portfolio/Leona Chen Resume.pdf" download="Leona Chen Resume.pdf" className="resume-download-btn">
           Download Resume
         </a>
+        </div>
       </div>
     </section>
   );

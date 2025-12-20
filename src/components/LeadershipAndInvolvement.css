@@ -1,25 +1,36 @@
 .leadership-involvement-section {
   padding: 54px 0;
   text-align: center;
-  background-color: #282c34; /* Matches other sections */
+  background-color: #fff8f8; /* Matches other sections */
+}
+
+/* Carousel wrapper */
+.work-carousel {
+  position: relative;
 }
 
 .involvements-container {
   display: flex;
-  flex-direction: column;
-  gap: 27px;
-  max-width: 810px;
-  margin: 0 auto;
-  padding: 0 18px;
+  flex-direction: row;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 24px calc(50% - (var(--card-width) / 2)); /* side padding allows edge centering */
 }
 
 .involvement-card {
-  background-color: #3a3f4a; /* Lighter background for cards */
+  background-color: #ffffff; /* Lighter background for cards */
   border-radius: 8px;
-  box-shadow: 0 3.6px 7.2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3.6px 7.2px rgba(153, 30, 86, 0.16);
   padding: 27px;
   text-align: left;
   transition: all 0.3s ease;
+  min-width: var(--card-min-width);
+  flex: 0 0 var(--card-width);
+  scroll-snap-align: center;
+  transform: scale(0.96);
+  opacity: 0.9;
 }
 
 .involvement-card h3 {
@@ -29,8 +40,14 @@
 }
 
 .involvement-card:hover {
-  transform: translateY(-4.5px);
-  box-shadow: 0 7.2px 14.4px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4.5px) scale(1);
+  box-shadow: 0 7.2px 14.4px rgba(153, 30, 86, 0.20);
+}
+
+.involvement-card.active {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: 0 10px 24px rgba(153, 30, 86, 0.22);
 }
 
 .involvement-years,
@@ -42,11 +59,51 @@
 
 .involvement-description {
   list-style-type: disc;
-  margin-left: 18px;
+  margin: 0; /* remove default left margin */
+  padding-left: 0; /* remove default padding so bullets are not indented */
+  list-style-position: inside; /* place bullets inside the content flow */
   font-size: 1.1rem;
   color: #f0f0f0; /* Light text */
 }
 
 .involvement-description li {
   margin-bottom: 7.2px;
-} 
+}
+
+/* Carousel controls (reuse the same styling pattern) */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ed3a3a;
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-control.prev {
+  left: 6px;
+}
+
+.carousel-control.next {
+  right: 6px;
+}
+
+@media (max-width: 800px) {
+  .involvements-container {
+    padding: 18px;
+    gap: 18px;
+  }
+  .involvement-card {
+    flex: 1 1 auto;
+    min-width: 0;
+    border-radius: 8px;
+  }
+}
