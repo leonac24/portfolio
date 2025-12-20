@@ -80,22 +80,23 @@
     font-size: 1.1rem;
     margin-bottom: 10px;
   }
-  .about-section h2 > span {
-    font-size: 1.8rem;
-  }
   .resume-download-btn {
     padding: 12px 24px;
     font-size: 1rem;
     min-height: 44px;
-    display: flex;
+    min-width: 160px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: fit-content;
+    box-sizing: border-box;
   }
 }
 
 .resume-download-btn {
   display: inline-block;
   margin-top: 27px;
+  margin-left: 0; /* ensure button is left aligned with text */
   color: #fff;
   text-decoration: none;
   padding: 11px 29px;
@@ -105,12 +106,23 @@
   font-weight: 600;
   box-shadow: none; /* removed shadow */
   transition: background-color 0.2s ease, transform 0.15s ease;
+  width: fit-content;
+  white-space: nowrap;
 }
 
 .about-section h2 {
   text-align: left;
   color: #000000;
   margin-bottom: 36px; /* extra spacing below animated title */
+  min-height: 7rem; /* Reserve space for animated text to prevent layout shift */
+  display: flex;
+  align-items: flex-start;
+}
+
+@media (max-width: 600px) {
+  .about-section h2 {
+    min-height: 5rem; /* Smaller min-height on mobile */
+  }
 }
 
 .resume-download-btn:hover {
@@ -119,17 +131,17 @@
   box-shadow: none; /* ensure no hover shadow */
 }
 
-.resume-download-btn {
-  margin-left: 0; /* ensure button is left aligned with text */
-}
-
 /* If the animation wraps in a span, make it prominent */
 .about-section h2 > span {
   display: block;
   font-weight: 700;
+  font-size: 3.0rem;
+  line-height: 1.2;
 }
 
-/* Make only the animated line larger */
-.about-section h2 > span {
-  font-size: 3.0rem;
+@media (max-width: 600px) {
+  .about-section h2 > span {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
 }

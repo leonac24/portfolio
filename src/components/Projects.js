@@ -8,15 +8,15 @@ function Projects() {
 
   const projects = [
     {
-      title: "RAGatha",
-      description: "Winning submission for the HackPSU ICDS Challenge. Developed a Retrieval Augmented Generation (RAG) chatbot based on the Penn State Institute for Computational and Data Sciences ROAR user guide.",
-      technologies: ["Python", "Langchain", "ChromA", "Tkinter"],
+      title: "RAGatha @ HackPSU (1st Place Winner)",
+      description: "Developed RAG chatbot with team of 5 using LangChain and OpenAI API key to answer queries. Implemented vector-based semantic search by embedding user guide content into ChromaDB to optimize retrieval speed. Designed and built an interactive GUI using Tkinter library to enhance accessibility and usability.",
+      technologies: ["Python", "LangChain", "OpenAI", "ChromA", "Tkinter", "NumPy", "pandas"],
       link: "https://github.com/aryanxsabnekar/RAG_Chatbot"
     },
     {
       title: "Nomble",
-      description: "Nomble is a placeholder project showcasing a flipped card UI. This card includes sample features and skills for demonstration purposes.",
-      technologies: ["React", "CSS3", "Figma", "Node.js"],
+      description: "Built and maintained a cross-platform application that allows groups of users to collaboratively choose restaurants. Implemented user authentication, data management, AI recommendations, responsive UI, and third-party APIs. Collaborated with team of 3 using Git version control and automated build processes to enhance development efficiency.",
+      technologies: ["React Native", "TypeScript", "JavaScript", "Firebase", "Xcode", "Expo"],
       link: "#"
     },
   ];

@@ -9,25 +9,36 @@ function LeadershipAndInvolvement() {
 
   const involvements = [
     {
-      title: 'College Loop Co-President, Student Leadership Council Member, Club President',
+      title: 'Front-End Developer/Technology Organizer',
+      company: 'HackPSU',
+      location: 'University Park, PA',
+      years: 'September 2025 - Present',
+      description: [
+        'Developed and maintained software for over 900 participants and internal organizers at Penn State\'s largest hackathon',
+        'Implemented front-end features and API integrations in collaboration with design and back-end teams',
+        'Streamlined project workflows through testing, debugging, and iterative improvements using Git version control',
+      ],
+    },
+    {
+      title: 'College Loop Founder & Co-President, 2024 Student Leadership Council Member',
       company: 'Girls Who Code',
       location: 'University Park, PA',
-      years: 'May 2023 - Present',
+      years: 'June 2024 - Present',
       description: [
-        'Led Penn State\'s chapter of Girls Who Code, creating a student organization fostering community for women in tech',
+        'Led team of 17 to host educational and professional events through Penn State\'s chapter of national Girls Who Code',
+        'Spearheaded strategic planning to set Loop goals, expand outreach, and create opportunities for Penn State\'s community',
         'Collaborated with national Student Leadership Council to write strategic proposal for future Girls Who Code programs',
-        'Directed after-school club meetings at Upper St. Clair High School, creating an inclusive learning space for students',
       ],
     },
     {
       title: 'Associate Consultant',
       company: 'Nittany Lion Consulting Group',
       location: 'University Park, PA',
-      years: 'November 2024 - Present',
+      years: 'November 2024 - May 2025',
       description: [
         'Collaborated with team and company executives to deliver solutions for client concrete 3D printing startup X-Hab 3D',
         'Conducted market research, analyzed competitors, interviewed critical stakeholders, evaluated business model',
-        'Selected from a competitive applicant pool via behavioral and case interviews through Consultant Training Program',
+        'Coordinated cross-functional team efforts, ensuring timely project deliverables and alignment with client objectives',
       ],
     },
     {
