@@ -39,7 +39,7 @@
 
 .experience-card h3 {
   font-size: 1.8rem;
-  color: #e0e0e0;
+  color: #000000;
   margin-bottom: 9px;
 }
 
@@ -92,13 +92,13 @@
 
 .experience-years {
   font-size: 1rem;
-  color: #a0a0a0;
+  color: #000000;
   margin-bottom: 13.5px;
 }
 
 .experience-location {
   font-size: 1rem;
-  color: #c8c7c7; /* Lighter grey for years/location */
+  color: #000000; /* Lighter grey for years/location */
   margin-bottom: 13.5px;
 }
 
@@ -108,7 +108,7 @@
   padding-left: 0; /* remove default padding so bullets are not indented */
   list-style-position: inside; /* place bullets inside the content flow */
   font-size: 1.1rem;
-  color: #f0f0f0;
+  color: #000000;
 }
 
 .experience-description li {
