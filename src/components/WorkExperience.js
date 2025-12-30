@@ -61,11 +61,60 @@ function WorkExperience() {
   const scrollToCard = (index) => {
     const el = containerRef.current;
     if (!el) return;
+    const realIndex = index + experiences.length;
     const cards = Array.from(el.querySelectorAll('.experience-card'));
-    if (!cards[index]) return;
-    const targetCard = cards[index];
+    if (!cards[realIndex]) return;
+    const targetCard = cards[realIndex];
     const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
     el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+  };
+
+  const handleNext = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    const cards = Array.from(el.querySelectorAll('.experience-card'));
+    const totalCards = experiences.length;
+    
+    let activeIndex = cards.findIndex(c => c.classList.contains('active'));
+    if (activeIndex === -1) activeIndex = totalCards;
+    
+    const targetCard = cards[activeIndex + 1];
+    if (!targetCard) return;
+    
+    const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+    el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    
+    setTimeout(() => {
+      const newActive = cards.findIndex(c => c.classList.contains('active'));
+      if (newActive >= totalCards * 2) {
+        const jumpTo = cards[totalCards];
+        el.scrollTo({ left: jumpTo.offsetLeft + jumpTo.offsetWidth / 2 - el.clientWidth / 2, behavior: 'auto' });
+      }
+    }, 400);
+  };
+
+  const handlePrev = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    const cards = Array.from(el.querySelectorAll('.experience-card'));
+    const totalCards = experiences.length;
+    
+    let activeIndex = cards.findIndex(c => c.classList.contains('active'));
+    if (activeIndex === -1) activeIndex = totalCards;
+    
+    const targetCard = cards[activeIndex - 1];
+    if (!targetCard) return;
+    
+    const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+    el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    
+    setTimeout(() => {
+      const newActive = cards.findIndex(c => c.classList.contains('active'));
+      if (newActive < totalCards) {
+        const jumpTo = cards[totalCards * 2 - 1];
+        el.scrollTo({ left: jumpTo.offsetLeft + jumpTo.offsetWidth / 2 - el.clientWidth / 2, behavior: 'auto' });
+      }
+    }, 400);
   };
 
   const experiences = [
@@ -143,6 +192,8 @@ function WorkExperience() {
     },
   ];
 
+  const allExperiences = [...experiences, ...experiences, ...experiences];
+
   return (
     <section id="work-experience" ref={ref} className={`work-experience-section fade-in ${isVisible ? 'visible' : ''}`}>
       <h2>Work Experience</h2>
@@ -151,29 +202,7 @@ function WorkExperience() {
         <button
           className="carousel-control prev"
           aria-label="Previous experience"
-          onClick={() => {
-            const el = containerRef.current;
-            if (!el) return;
-            const cards = Array.from(el.querySelectorAll('.experience-card'));
-            if (!cards.length) return;
-
-            // find active card (fallback to nearest to center)
-            let activeIndex = cards.findIndex(c => c.classList.contains('active'));
-            if (activeIndex === -1) {
-              const center = el.scrollLeft + el.clientWidth / 2;
-              let min = Infinity;
-              cards.forEach((card, i) => {
-                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-                const dist = Math.abs(cardCenter - center);
-                if (dist < min) { min = dist; activeIndex = i; }
-              });
-            }
-
-            const targetIndex = Math.max(0, activeIndex - 1);
-            const targetCard = cards[targetIndex];
-            const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
-            el.scrollTo({ left: targetLeft, behavior: 'smooth' });
-          }}
+          onClick={handlePrev}
         >
           ‹
         </button>
@@ -182,11 +211,10 @@ function WorkExperience() {
           className="experiences-container"
           ref={containerRef}
         >
-          {experiences.map((exp, index) => (
+          {allExperiences.map((exp, index) => (
             <div 
               key={index} 
               className="experience-card"
-              onClick={() => scrollToCard(index)}
             >
               <h3>{exp.title} @ {exp.company}</h3>
               <p className="experience-years">{exp.years}</p>
@@ -203,29 +231,7 @@ function WorkExperience() {
         <button
           className="carousel-control next"
           aria-label="Next experience"
-          onClick={() => {
-            const el = containerRef.current;
-            if (!el) return;
-            const cards = Array.from(el.querySelectorAll('.experience-card'));
-            if (!cards.length) return;
-
-            // find active card (fallback to nearest to center)
-            let activeIndex = cards.findIndex(c => c.classList.contains('active'));
-            if (activeIndex === -1) {
-              const center = el.scrollLeft + el.clientWidth / 2;
-              let min = Infinity;
-              cards.forEach((card, i) => {
-                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-                const dist = Math.abs(cardCenter - center);
-                if (dist < min) { min = dist; activeIndex = i; }
-              });
-            }
-
-            const targetIndex = Math.min(cards.length - 1, activeIndex + 1);
-            const targetCard = cards[targetIndex];
-            const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
-            el.scrollTo({ left: targetLeft, behavior: 'smooth' });
-          }}
+          onClick={handleNext}
         >
           ›
         </button>
@@ -235,7 +241,7 @@ function WorkExperience() {
         {experiences.map((_, index) => (
           <button
             key={index}
-            className={`indicator-button ${activeIndex === index ? 'active' : ''}`}
+            className={`indicator-button ${activeIndex % experiences.length === index ? 'active' : ''}`}
             onClick={() => scrollToCard(index)}
             aria-label={`Go to experience ${index + 1}`}
           />

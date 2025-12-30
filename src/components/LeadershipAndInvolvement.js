@@ -120,12 +120,63 @@ function LeadershipAndInvolvement() {
   const scrollToCard = (index) => {
     const el = containerRef.current;
     if (!el) return;
+    const realIndex = index + involvements.length;
     const cards = Array.from(el.querySelectorAll('.involvement-card'));
-    if (!cards[index]) return;
-    const targetCard = cards[index];
+    if (!cards[realIndex]) return;
+    const targetCard = cards[realIndex];
     const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
     el.scrollTo({ left: targetLeft, behavior: 'smooth' });
   };
+
+  const handleNext = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    const cards = Array.from(el.querySelectorAll('.involvement-card'));
+    const totalCards = involvements.length;
+    
+    let activeIndex = cards.findIndex(c => c.classList.contains('active'));
+    if (activeIndex === -1) activeIndex = totalCards;
+    
+    const targetCard = cards[activeIndex + 1];
+    if (!targetCard) return;
+    
+    const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+    el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    
+    setTimeout(() => {
+      const newActive = cards.findIndex(c => c.classList.contains('active'));
+      if (newActive >= totalCards * 2) {
+        const jumpTo = cards[totalCards];
+        el.scrollTo({ left: jumpTo.offsetLeft + jumpTo.offsetWidth / 2 - el.clientWidth / 2, behavior: 'auto' });
+      }
+    }, 400);
+  };
+
+  const handlePrev = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    const cards = Array.from(el.querySelectorAll('.involvement-card'));
+    const totalCards = involvements.length;
+    
+    let activeIndex = cards.findIndex(c => c.classList.contains('active'));
+    if (activeIndex === -1) activeIndex = totalCards;
+    
+    const targetCard = cards[activeIndex - 1];
+    if (!targetCard) return;
+    
+    const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
+    el.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    
+    setTimeout(() => {
+      const newActive = cards.findIndex(c => c.classList.contains('active'));
+      if (newActive < totalCards) {
+        const jumpTo = cards[totalCards * 2 - 1];
+        el.scrollTo({ left: jumpTo.offsetLeft + jumpTo.offsetWidth / 2 - el.clientWidth / 2, behavior: 'auto' });
+      }
+    }, 400);
+  };
+
+  const allInvolvements = [...involvements, ...involvements, ...involvements];
 
   return (
     <section id="leadership-involvement" ref={ref} className={`leadership-involvement-section fade-in ${isVisible ? 'visible' : ''}`}>
@@ -135,38 +186,16 @@ function LeadershipAndInvolvement() {
         <button
           className="carousel-control prev"
           aria-label="Previous involvement"
-          onClick={() => {
-            const el = containerRef.current;
-            if (!el) return;
-            const cards = Array.from(el.querySelectorAll('.involvement-card'));
-            if (!cards.length) return;
-
-            let activeIndex = cards.findIndex(c => c.classList.contains('active'));
-            if (activeIndex === -1) {
-              const center = el.scrollLeft + el.clientWidth / 2;
-              let min = Infinity;
-              cards.forEach((card, i) => {
-                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-                const dist = Math.abs(cardCenter - center);
-                if (dist < min) { min = dist; activeIndex = i; }
-              });
-            }
-
-            const targetIndex = Math.max(0, activeIndex - 1);
-            const targetCard = cards[targetIndex];
-            const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
-            el.scrollTo({ left: targetLeft, behavior: 'smooth' });
-          }}
+          onClick={handlePrev}
         >
           ‹
         </button>
 
         <div className="involvements-container" ref={containerRef}>
-          {involvements.map((inv, index) => (
+          {allInvolvements.map((inv, index) => (
             <div 
               key={index} 
               className="involvement-card"
-              onClick={() => scrollToCard(index)}
             >
               <h3>{inv.title} @ {inv.company}</h3>
               <p className="involvement-years">{inv.years}</p>
@@ -183,28 +212,7 @@ function LeadershipAndInvolvement() {
         <button
           className="carousel-control next"
           aria-label="Next involvement"
-          onClick={() => {
-            const el = containerRef.current;
-            if (!el) return;
-            const cards = Array.from(el.querySelectorAll('.involvement-card'));
-            if (!cards.length) return;
-
-            let activeIndex = cards.findIndex(c => c.classList.contains('active'));
-            if (activeIndex === -1) {
-              const center = el.scrollLeft + el.clientWidth / 2;
-              let min = Infinity;
-              cards.forEach((card, i) => {
-                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-                const dist = Math.abs(cardCenter - center);
-                if (dist < min) { min = dist; activeIndex = i; }
-              });
-            }
-
-            const targetIndex = Math.min(cards.length - 1, activeIndex + 1);
-            const targetCard = cards[targetIndex];
-            const targetLeft = targetCard.offsetLeft + targetCard.offsetWidth / 2 - el.clientWidth / 2;
-            el.scrollTo({ left: targetLeft, behavior: 'smooth' });
-          }}
+          onClick={handleNext}
         >
           ›
         </button>
@@ -214,7 +222,7 @@ function LeadershipAndInvolvement() {
         {involvements.map((_, index) => (
           <button
             key={index}
-            className={`indicator-button ${activeIndex === index ? 'active' : ''}`}
+            className={`indicator-button ${activeIndex % involvements.length === index ? 'active' : ''}`}
             onClick={() => scrollToCard(index)}
             aria-label={`Go to involvement ${index + 1}`}
           />
