@@ -6,6 +6,7 @@ body {
   color: #000000;
   overflow-x: hidden; /* Prevent horizontal scrolling */
   width: 100%;
+  padding-top: 72px; /* Account for fixed navbar */
 }
 
 :root {

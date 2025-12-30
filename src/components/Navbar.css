@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 999;
   box-shadow: none; /* removed shadow */
@@ -63,7 +63,7 @@
 }
 
 .nav-item:hover {
-  color: #61dafb;
+  color: #ed3a3a;
   transition: all 0.2s ease-in-out;
 }
 
