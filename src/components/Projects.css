@@ -23,6 +23,8 @@
   padding: 18px;
   box-shadow: 0 3.6px 7.2px rgba(153, 30, 86, 0.16);
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 500px;
 }
 
 .project-card:hover {
@@ -151,4 +153,3 @@
     padding: 3px 6px;
   }
 }
-
