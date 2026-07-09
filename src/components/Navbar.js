@@ -5,8 +5,8 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 const LINKS = [
   { href: '#about', label: 'ABOUT' },
   { href: '#skills', label: 'SKILLS' },
-  { href: '#projects', label: 'PROJECTS' },
   { href: '#work-experience', label: 'WORK' },
+  { href: '#projects', label: 'PROJECTS' },
   { href: '#leadership-involvement', label: 'MORE' },
   { href: '#contact', label: 'HI', accent: true },
 ];

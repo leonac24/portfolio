@@ -10,7 +10,7 @@ import {
 export const PROJECTS = [
   {
     name: 'Rethread',
-    award: <>— N.A. Finalist @ Google Solution Challenge <FaGlobe style={{ verticalAlign: '-0.12em' }} /></>,
+    award: <>— North America Finalist @ Google Solution Challenge <FaGlobe style={{ verticalAlign: '-0.12em' }} /></>,
     desc: 'Full-stack fashion-sustainability app in Next.js integrating 6 external APIs across a parallel server-side AI pipeline. Built a serverless REST API with async fan-out, in-memory caching and rate limiting across 9 endpoints, plus Firebase (Google OAuth + Firestore atomic batch writes) for user-stat aggregation.',
     tags: ['Next.js', 'React', 'Firebase', 'Tailwind'],
     link: 'https://rethread.studio/',
