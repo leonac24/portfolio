@@ -23,7 +23,11 @@ function Projects() {
             >
               <span className="project-tape" style={{ background: p.tape }} />
               <div className="project-cover" style={{ background: p.coverBg }}>
-                <span aria-hidden="true">{p.cover}</span>
+                {p.coverImg ? (
+                  <img className="project-cover-img" src={p.coverImg} alt={`${p.name} screenshot`} loading="lazy" />
+                ) : (
+                  <span aria-hidden="true">{p.cover}</span>
+                )}
               </div>
               <div className="project-head">
                 <span className="project-name">{p.name}</span>
