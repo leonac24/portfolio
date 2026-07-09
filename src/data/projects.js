@@ -52,6 +52,7 @@ export const PROJECTS = [
     tags: ['React', 'Vite', 'JavaScript', 'Gemini API', 'Recharts'],
     link: 'https://github.com/leonac24/enterprise-ai-readiness-advisor',
     cover: <FaChartBar />,
+    image: '/portfolio/ai-readiness-advisor.png',
     coverBg: 'linear-gradient(135deg,#c9b8ff,#8fe0b0)',
     tape: 'var(--lav)',
     rot: '-1deg',

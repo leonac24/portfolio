@@ -36,6 +36,9 @@ export const INVOLVEMENTS = [
       'Led a team of 17 to host educational and professional events for Penn State’s chapter.',
       'Co-wrote a strategic proposal with the national Student Leadership Council.',
     ],
+    gallery: [
+      { src: '/portfolio/gallery/gwc-kpmg.jpg', alt: 'Girls Who Code @ Penn State club meeting in collaboration with KPMG', cap: 'club meeting x KPMG ✦' },
+    ],
   },
   {
     role: 'Associate Consultant',

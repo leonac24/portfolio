@@ -55,6 +55,9 @@ export const EXPERIENCES = [
       'Managed high-throughput data pipelines producing extensive datasets for AI alignment analysis.',
       'Synthesized AI outputs to investigate cross-cultural variation in emotional expression.',
     ],
+    gallery: [
+      { src: '/portfolio/gallery/wang-lab-members.jpg', alt: 'The James Z. Wang Research Group lab members', cap: 'the lab ✦' },
+    ],
   },
   {
     role: 'AI / ML Instructor Assistant',
