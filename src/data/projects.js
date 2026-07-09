@@ -16,6 +16,11 @@ export const PROJECTS = [
     link: 'https://rethread.studio/',
     cover: <FaTshirt />,
     image: '/portfolio/rethread.png',
+    gallery: [
+      { src: '/portfolio/gallery/rethread-demo.jpg', alt: 'Demoing Rethread to judges', cap: 'demoing to the judges ✦' },
+      { src: '/portfolio/gallery/rethread-closet.jpg', alt: 'Rethread closet dashboard showing a scanned garment and sustainability stats', cap: 'the closet dashboard ✦' },
+      { src: '/portfolio/gallery/rethread-team.jpg', alt: 'The Rethread team', cap: 'the team ✦' },
+    ],
     coverBg: 'linear-gradient(135deg,#8fe0b0,#c9b8ff)',
     tape: 'var(--yellow)',
     rot: '-1.5deg',
@@ -26,8 +31,15 @@ export const PROJECTS = [
     desc: 'Roblox game in Luau with an event-driven client–server architecture, state synchronization and modular backend logic. Designed a dialogue/scoring engine with dynamic UI driven by server-side events and shared data modules — shipped end to end in 36 hours.',
     tags: ['Luau', 'Roblox Studio'],
     link: 'https://devpost.com/software/pixel-truth',
+    news: {
+      label: 'Featured in Penn State News',
+      href: 'https://www.psu.edu/news/engineering/story/engineering-undergrads-win-award-roblox-media-literacy-game-la-hacks',
+    },
     cover: <FaGamepad />,
     image: '/portfolio/pixel-truth.png',
+    gallery: [
+      { src: '/portfolio/gallery/lahacks-team.png', alt: 'The Pixel Truth team at LA Hacks 2026', cap: 'the team @ LA Hacks 2026 ✦' },
+    ],
     coverBg: 'linear-gradient(135deg,#ff2e74,#ff9dbf)',
     tape: 'var(--mint)',
     rot: '1.5deg',

@@ -13,14 +13,18 @@ function Projects() {
         <div className="px-title shadow-yellow">THINGS I MADE</div>
         <div className="projects-grid">
           {PROJECTS.map((p) => (
-            <a
+            <div
               key={p.name}
-              href={p.link}
-              target={p.link.startsWith('http') ? '_blank' : undefined}
-              rel="noopener noreferrer"
               className="pxlift project-card"
               style={{ transform: `rotate(${p.rot})` }}
             >
+              <a
+                href={p.link}
+                target={p.link.startsWith('http') ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                className="project-link"
+                aria-label={`${p.name} — view project`}
+              />
               <span className="project-tape" style={{ background: p.tape }} />
               <div className="project-cover" style={{ background: p.coverBg }}>
                 {p.image ? (
@@ -39,7 +43,28 @@ function Projects() {
                   <span key={t} className="project-tag">{t}</span>
                 ))}
               </div>
-            </a>
+              {p.news && (
+                <a
+                  className="project-news"
+                  href={p.news.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  &#9654; {p.news.label}
+                </a>
+              )}
+              {p.gallery && p.gallery.length > 0 && (
+                <div className="project-gallery">
+                  {p.gallery.map((g) => (
+                    <figure key={g.src} className="project-shot">
+                      <span className="tape tape-mint" aria-hidden="true" />
+                      <img src={g.src} alt={g.alt} loading="lazy" />
+                      <figcaption>{g.cap}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>

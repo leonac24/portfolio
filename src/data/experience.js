@@ -38,6 +38,10 @@ export const EXPERIENCES = [
       'Translated client needs into scalable solutions with integrated cross-channel data and targeted campaigns.',
       'Collaborated with cross-functional consulting teams on marketing automation and performance optimization.',
     ],
+    gallery: [
+      { src: '/portfolio/gallery/ibm-goodie-box.jpg', alt: 'IBM onboarding welcome box with branded goodies', cap: 'IBM welcome goodie box ✦' },
+      { src: '/portfolio/gallery/ibm-dinner.jpg', alt: 'Dinner with IBM executives and co-interns', cap: 'dinner with execs & co-interns' },
+    ],
   },
   {
     role: 'Research Intern',

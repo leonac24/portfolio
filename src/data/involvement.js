@@ -20,6 +20,10 @@ export const INVOLVEMENTS = [
       'Shipped front-end features and API integrations with design and back-end teams.',
       'Streamlined workflows through testing, debugging and iterative CI/CD improvements.',
     ],
+    gallery: [
+      { src: '/portfolio/gallery/hackpsu-team.jpg', alt: 'The HackPSU organizing team', cap: 'the HackPSU team ✦' },
+      { src: '/portfolio/gallery/hackpsu-donut-run.jpg', alt: 'HackPSU team on a donut run', cap: 'team donut run 🍩' },
+    ],
   },
   {
     role: 'Loop Founder & Co-President · 2024 Leadership Council',

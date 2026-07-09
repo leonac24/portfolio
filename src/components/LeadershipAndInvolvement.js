@@ -26,6 +26,17 @@ function LeadershipAndInvolvement() {
                   {e.bullets.map((b, i) => <li key={i}>{b}</li>)}
                 </ul>
               )}
+              {e.gallery && e.gallery.length > 0 && (
+                <div className="tl-gallery">
+                  {e.gallery.map((g) => (
+                    <figure key={g.src} className="tl-shot">
+                      <span className="tape tape-mint" aria-hidden="true" />
+                      <img src={g.src} alt={g.alt} loading="lazy" />
+                      <figcaption>{g.cap}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>

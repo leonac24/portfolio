@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Read(//Users/leona.chen/Pictures/Photos Library.photoslibrary/resources/derivatives/0/**)",
+      "Bash(sips -g pixelWidth -g pixelHeight public/profilepic.png)",
+      "Bash(gh pr *)",
+      "Bash(set -e)",
+      "Bash(cp /Users/leona.chen/.claude/image-cache/ee07c3e1-fedd-4403-8963-7bc67a55403e/1.png /Users/leona.chen/Documents/GitHub/portfolio/public/gallery/rethread-demo.jpg)",
+      "Bash(cp /Users/leona.chen/.claude/image-cache/ee07c3e1-fedd-4403-8963-7bc67a55403e/2.png /Users/leona.chen/Documents/GitHub/portfolio/public/gallery/rethread-closet.jpg)",
+      "Bash(cp /Users/leona.chen/.claude/image-cache/ee07c3e1-fedd-4403-8963-7bc67a55403e/3.png /Users/leona.chen/Documents/GitHub/portfolio/public/gallery/rethread-team.jpg)"
     ]
   }
 }
