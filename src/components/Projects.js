@@ -23,8 +23,8 @@ function Projects() {
             >
               <span className="project-tape" style={{ background: p.tape }} />
               <div className="project-cover" style={{ background: p.coverBg }}>
-                {p.coverImg ? (
-                  <img className="project-cover-img" src={p.coverImg} alt={`${p.name} screenshot`} loading="lazy" />
+                {p.image ? (
+                  <img className="project-cover-img" src={p.image} alt={`${p.name} preview`} loading="lazy" />
                 ) : (
                   <span aria-hidden="true">{p.cover}</span>
                 )}
