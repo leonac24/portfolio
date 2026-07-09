@@ -22,6 +22,11 @@ export const EXPERIENCES = [
       'Built and maintained full-stack features across React/TypeScript frontends and backend API services.',
       'Cleaned up technical debt and maintained automated test coverage under strict lint and CI/CD standards.',
     ],
+    gallery: [
+      { src: '/portfolio/gallery/gc-interns.jpg', alt: 'The 2026 GameChanger intern class', cap: 'the whole intern squad ✦' },
+      { src: '/portfolio/gallery/gc-linkedin.jpg', alt: 'Visiting LinkedIn HQ, sponsored by GameChanger', cap: 'GC-sponsored trip to LinkedIn HQ' },
+      { src: '/portfolio/gallery/gc-lunch-sameer.jpg', alt: 'Lunch with GameChanger president Sameer Ahuja', cap: 'lunch with president Sameer Ahuja' },
+    ],
   },
   {
     role: 'Associate Application Developer Co-Op',
