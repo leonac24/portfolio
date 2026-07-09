@@ -5,22 +5,30 @@ import { useIntersectionObserver } from './useIntersectionObserver';
 
 const EXPERIENCES = [
   {
+    role: 'Software Engineering Intern · Fan Experience',
+    org: 'GameChanger',
+    date: 'Jun 2026 – Present',
+    loc: 'New York, NY',
+    icon: '⚾',
+    bg: '#eafaf1',
+    bullets: [
+      'Developed a cross-platform SDUI home screen with a versioned API and resilient client handling.',
+      'Built and maintained full-stack features across React/TypeScript frontends and backend API services.',
+      'Cleaned up technical debt and maintained automated test coverage under strict lint and CI/CD standards.',
+    ],
+  },
+  {
     role: 'Associate Application Developer Co-Op',
     org: 'IBM',
     date: 'Jan 2026 – May 2026',
     loc: 'State College, PA',
     icon: '💼',
     bg: '#fff0f5',
-    bullets: ['Adobe Experience Platform Specialist / Engineer / Consultant.'],
-  },
-  {
-    role: 'Software Engineering Intern (Incoming)',
-    org: 'PNC Financial Services',
-    date: 'Jun 2026 – Aug 2026',
-    loc: 'Pittsburgh, PA',
-    icon: '🏦',
-    bg: '#eafaf1',
-    bullets: [],
+    bullets: [
+      'Implemented custom enterprise MarTech solutions across Adobe Experience Platform, Marketo and Real-Time CDP.',
+      'Translated client needs into scalable solutions with integrated cross-channel data and targeted campaigns.',
+      'Collaborated with cross-functional consulting teams on marketing automation and performance optimization.',
+    ],
   },
   {
     role: 'Research Intern',

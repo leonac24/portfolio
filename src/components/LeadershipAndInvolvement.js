@@ -15,6 +15,7 @@ const INVOLVEMENTS = [
     bullets: [
       'Built & maintained software for 900+ participants at Penn State’s largest hackathon.',
       'Shipped front-end features and API integrations with design and back-end teams.',
+      'Streamlined workflows through testing, debugging and iterative CI/CD improvements.',
     ],
   },
   {

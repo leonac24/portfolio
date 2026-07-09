@@ -33,10 +33,10 @@ function About() {
           </div>
 
           <p className="hero-bio">
-            Junior @ Penn State — CS major, Math minor. Currently at IBM as an
-            Associate Application Developer (Adobe Experience Platform), and an
-            incoming SWE intern @ PNC for Summer 2026. On a quest toward AI &amp;
-            machine-learning engineering.
+            CS &amp; Math @ Penn State (Schreyer Honors). Currently a Software
+            Engineering Intern on the Fan Experience team @ GameChanger, after a
+            co-op @ IBM as an Associate Application Developer (Adobe Experience
+            Platform). On a quest toward AI &amp; machine-learning engineering.
           </p>
 
           <div className="hero-actions">

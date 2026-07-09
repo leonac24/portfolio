@@ -5,8 +5,9 @@ import { useIntersectionObserver } from './useIntersectionObserver';
 
 const SKILLS = [
   'Java', 'Python', 'C', 'JavaScript', 'Swift', 'MATLAB', 'SQL', 'HTML/CSS',
-  'LaTeX', 'React.js', 'NumPy', 'pandas', 'Tkinter', 'ChromaDB', 'p5.js',
-  'Swing', 'JDBC', 'LangChain', 'TensorFlow',
+  'R', 'Luau', 'LaTeX', 'React.js', 'React Native', 'Next.js', 'NumPy',
+  'pandas', 'Tkinter', 'ChromaDB', 'p5.js', 'Swing', 'LangChain',
+  'TensorFlow', 'Firebase', 'Hugging Face', 'Git', 'Power BI',
 ];
 
 function Skills() {
