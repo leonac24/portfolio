@@ -131,7 +131,6 @@ function About() {
                 repeat={Infinity}
               />
             </span>
-            <span className="hero-caret" />
           </div>
 
           <p className="hero-bio">

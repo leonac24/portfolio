@@ -95,15 +95,6 @@
   transform: rotate(-1deg);
 }
 .hero-typed { color: var(--yellow); }
-.hero-caret {
-  display: inline-block;
-  width: 9px;
-  height: 18px;
-  background: var(--pink);
-  margin-left: 3px;
-  vertical-align: -2px;
-  animation: dvblink 1s step-end infinite;
-}
 
 .hero-bio {
   font: 400 clamp(18px, 2.6vw, 21px) / 1.5 var(--f-term);
