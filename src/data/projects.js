@@ -38,6 +38,7 @@ export const PROJECTS = [
     cover: <FaGamepad />,
     image: '/portfolio/pixel-truth.png',
     gallery: [
+      { src: '/portfolio/gallery/pixel-truth-gameplay.png', alt: 'Pixel Truth gameplay', cap: 'gameplay ✦' },
       { src: '/portfolio/gallery/lahacks-team.png', alt: 'The Pixel Truth team at LA Hacks 2026', cap: 'the team @ LA Hacks 2026 ✦' },
     ],
     coverBg: 'linear-gradient(135deg,#ff2e74,#ff9dbf)',
