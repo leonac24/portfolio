@@ -3,27 +3,26 @@ import { useEffect, useRef, useState } from 'react';
 export const useIntersectionObserver = (options = {}) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const targetRef = useRef(null);
+  const { threshold = 0.1, rootMargin = '0px', root = null } = options;
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      setIsIntersecting(entry.isIntersecting);
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px',
-      ...options
-    });
-
     const currentTarget = targetRef.current;
-    if (currentTarget) {
-      observer.observe(currentTarget);
-    }
+    if (!currentTarget) return undefined;
 
-    return () => {
-      if (currentTarget) {
-        observer.unobserve(currentTarget);
+    const observer = new IntersectionObserver(([entry]) => {
+      // Reveal once and stop observing. Toggling back to `false` while a tall
+      // section straddles the threshold makes the reveal animation replay in a
+      // loop ("tweaking out"), so we never un-reveal.
+      if (entry.isIntersecting) {
+        setIsIntersecting(true);
+        observer.unobserve(entry.target);
       }
-    };
-  }, [options]);
+    }, { threshold, rootMargin, root });
+
+    observer.observe(currentTarget);
+
+    return () => observer.disconnect();
+  }, [threshold, rootMargin, root]);
 
   return [targetRef, isIntersecting];
-}; 
+};
