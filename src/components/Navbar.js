@@ -1,57 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
+const LINKS = [
+  { href: '#about', label: 'ABOUT' },
+  { href: '#skills', label: 'SKILLS' },
+  { href: '#projects', label: 'PROJECTS' },
+  { href: '#work-experience', label: 'WORK' },
+  { href: '#leadership-involvement', label: 'MORE' },
+  { href: '#contact', label: 'HI', accent: true },
+];
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isThin, setIsThin] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and past initial threshold
-        setIsThin(true);
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up
-        setIsThin(false);
-      }
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollY]);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  const close = () => setIsOpen(false);
 
   return (
-    <nav className={`navbar ${isThin ? 'navbar-thin' : ''}`}>
-      <div className="navbar-container">
-        <a href="/portfolio/" className="navbar-logo" onClick={closeMenu}>
-          Leona Chen
-        </a>
-        <div className="menu-icon" onClick={toggleMenu}>
+    <nav className="px-nav">
+      <div className="px-nav-inner">
+        <a href="#about" className="px-logo" onClick={close}>&#9670; LEONA.EXE</a>
+
+        <button
+          className="px-nav-toggle"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? <FaTimes /> : <FaBars />}
-        </div>
-        <div className={`nav-menu ${isOpen ? 'active' : ''} ${isThin ? 'navbar-menu-thin' : ''}`}>
-          <a href="#about" className="nav-item" onClick={closeMenu}>About</a>
-          <a href="#skills" className="nav-item" onClick={closeMenu}>Skills</a>
-          <a href="#work-experience" className="nav-item" onClick={closeMenu}>Work Experience</a>
-          <a href="#projects" className="nav-item" onClick={closeMenu}>Projects</a>
-          <a href="#leadership-involvement" className="nav-item" onClick={closeMenu}>Leadership & Involvement</a>
-          <a href="#contact" className="nav-item" onClick={closeMenu}>Contact</a>
+        </button>
+
+        <div className={`px-nav-menu ${isOpen ? 'open' : ''}`}>
+          {LINKS.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={close}
+              className={`px-nav-item ${l.accent ? 'accent' : ''}`}
+            >
+              {l.label}
+            </a>
+          ))}
         </div>
       </div>
     </nav>

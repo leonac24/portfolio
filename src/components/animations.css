@@ -1,60 +1,39 @@
-/* Fade in animation for sections */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ============================================================
+   Design 3a shared motion & interaction primitives.
+   ============================================================ */
+
+@keyframes dvblink   { 0%,49% { opacity:1 } 50%,100% { opacity:0 } }
+@keyframes dvpxblink { 0%,60% { opacity:1 } 61%,100% { opacity:0 } }
+@keyframes dvfloat   { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)) } 50% { transform: translateY(-12px) rotate(var(--r,0deg)) } }
+@keyframes dvfloat2  { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)) } 50% { transform: translateY(-20px) rotate(calc(var(--r,0deg) + 7deg)) } }
+@keyframes dvpulse   { 0%,100% { transform: scale(1) } 50% { transform: scale(1.12) } }
+
+/* reveal-on-scroll */
+.rv { opacity: 0; transform: translateY(26px); }
+.rv.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-}
+/* polaroid tilt lift */
+.pol { transition: transform .25s ease; }
+.pol:hover { transform: rotate(0deg) translateY(-6px) scale(1.02) !important; z-index: 30; }
 
-.fade-in.visible {
-  animation: fadeIn 1s ease-out forwards;
-}
+/* pixel chip hop */
+.chip { transition: transform .18s ease; }
+.chip:hover { transform: translateY(-4px) rotate(-3deg); }
 
-/* Hover effect for project cards */
-.project-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+/* hard-shadow pixel card lift */
+.pxlift { transition: transform .15s ease, box-shadow .15s ease; }
+.pxlift:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 var(--ink); }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(153, 30, 86, 0.14);
-}
+/* pixel button press */
+.pxbtn { transition: transform .1s ease, box-shadow .1s ease; }
+.pxbtn:hover  { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
+.pxbtn:active { transform: translate(2px,2px);  box-shadow: 0 0 0 var(--ink); }
 
-/* Animated icons */
-.skill-icon {
-  transition: transform 0.3s ease;
+@media (prefers-reduced-motion: reduce) {
+  .rv { opacity: 1; transform: none; }
+  [style*="animation"] { animation: none !important; }
 }
-
-.skill-icon:hover {
-  transform: scale(1.2) rotate(5deg);
-}
-
-/* Text highlight effect */
-.highlight-link {
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-}
-
-.highlight-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  transition: width 0.3s ease;
-}
-
-.highlight-link:hover::after {
-  width: 100%;
-} 

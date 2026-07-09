@@ -1,68 +1,102 @@
-body {
-  margin: 0;
-  background-color: #ffffff;  /* Even darker background for the body */
-  font-family: 'Quicksand', Arial, sans-serif;
-  font-weight: 400;
-  color: #000000;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  width: 100%;
-  padding-top: 72px; /* Account for fixed navbar */
-}
+/* ============================================================
+   Design 3a — "Pixel journal": retro 8-bit meets torn paper.
+   Global tokens, base layout & the pixel-grid paper background.
+   ============================================================ */
 
 :root {
-  --card-width: 320px;
-  --card-min-width: 300px;
+  /* palette */
+  --ink:      #201826;   /* near-black plum */
+  --pink:     #ff2e74;   /* hot-pink accent */
+  --pink-lt:  #ff9dbf;   /* light pink */
+  --pink-pale:#fff0f5;   /* pale pink band */
+  --yellow:   #ffd84d;
+  --mint:     #8fe0b0;
+  --lav:      #c9b8ff;
+  --paper:    #fffbfc;   /* off-white */
+  --muted:    #6b5a5a;
+  --muted-2:  #3a2f36;
+
+  /* fonts */
+  --f-press: 'Press Start 2P', ui-monospace, monospace;  /* 8-bit headings */
+  --f-term:  'VT323', ui-monospace, monospace;            /* retro terminal body */
+  --f-hand:  'Caveat', cursive;                           /* handwritten accents */
+  --f-mono:  'Space Mono', ui-monospace, monospace;       /* UI / nav */
+
+  --wrap: 1180px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--f-term);
+  overflow-x: hidden;
+  /* pixel-grid paper */
+  background:
+    linear-gradient(rgba(32,24,38,.035) 1px, transparent 1px) 0 0 / 7px 7px,
+    linear-gradient(90deg, rgba(32,24,38,.035) 1px, transparent 1px) 0 0 / 7px 7px,
+    var(--paper);
 }
 
 .App {
-  text-align: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;  /* Even darker app container background */
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  box-sizing: border-box;
+  padding-top: 62px; /* fixed nav height */
 }
 
 main {
-  flex: 1;
-  padding: 20px;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
+}
+
+/* generic section shell — full-bleed, centered inner wrap */
+.px-section { position: relative; }
+.px-wrap {
   width: 100%;
-  box-sizing: border-box;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 44px;
 }
 
-section {
-  margin: 40px 0;
-  padding: 20px;
-  background-color: #fff8f8;  /* Lighter background for sections/cards */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(153, 30, 86, 0.16); /* dark-pink shadow */
-  box-sizing: border-box;
-  max-width: 100%;
-  overflow-x: hidden;
+/* 8-bit section eyebrow (e.g. "▪ INVENTORY") */
+.px-eyebrow {
+  font: 400 13px var(--f-press);
+  color: var(--pink);
+  margin: 0 0 18px;
+  letter-spacing: .5px;
 }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #000000; /* Lighter headings */
-  font-weight: 600;
+/* big stepped-shadow 8-bit heading */
+.px-title {
+  font: 400 clamp(20px, 4.5vw, 30px) var(--f-press);
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0;
+}
+.px-title.shadow-yellow { text-shadow: 3px 3px 0 var(--yellow); }
+.px-title.shadow-lav    { text-shadow: 3px 3px 0 var(--lav); }
+.px-title.shadow-pink   { text-shadow: 3px 3px 0 var(--pink); }
+.px-title.shadow-mint   { text-shadow: 3px 3px 0 var(--mint); }
+
+.px-sub {
+  font: 400 clamp(18px, 2.4vw, 22px) var(--f-term);
+  color: #8a746c;
+  margin: 6px 0 0;
 }
 
-.App img {
-  max-width: 100%;
-  height: auto;
-  margin: 20px 0;
+/* torn-paper divider strip (uses SVG filter in App.js) */
+.torn-strip {
+  height: 26px;
+  filter: url(#torn);
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 90%; /* Reduce base font size for overall scaling */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  width: 100%;
-}
+img { max-width: 100%; display: block; }
 
+@media (max-width: 640px) {
+  .px-wrap { padding: 0 20px; }
+}

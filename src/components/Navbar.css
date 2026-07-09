@@ -1,119 +1,82 @@
-.navbar {
-  background: #ffffff; /* solid white navbar */
-  height: 72px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.px-nav {
   position: fixed;
   top: 0;
-  z-index: 999;
-  box-shadow: none; /* removed shadow */
-  transition: height 0.3s ease-in-out; /* keep height transition only */
-}
-
-.navbar-thin {
-  height: 54px; /* Thin state (60 * 0.9) */
-  background: #ffffff;
-  box-shadow: none;
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  left: 0;
   width: 100%;
-  max-width: 1080px; /* (1200 * 0.9) */
-  padding: 0 21.6px; /* (0 24px * 0.9) */
+  height: 62px;
+  z-index: 999;
+  background: var(--paper);
+  border-bottom: 3px solid var(--ink);
 }
 
-.navbar-logo {
-  color: #000000;
+.px-nav-inner {
+  height: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.px-logo {
+  font: 400 13px var(--f-press);
+  color: var(--pink);
   text-decoration: none;
-  font-size: 1.35rem; /* (1.5rem * 0.9) */
-  font-weight: bold;
+  white-space: nowrap;
 }
 
-.menu-icon {
+.px-nav-menu {
+  display: flex;
+  gap: 18px;
+}
+
+.px-nav-item {
+  font: 400 9px var(--f-press);
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 2px;
+  transition: color .15s ease, transform .15s ease;
+}
+.px-nav-item:hover { color: var(--ink); transform: translateY(-2px); }
+.px-nav-item.accent { color: var(--pink); }
+
+.px-nav-toggle {
   display: none;
-  font-size: 1.62rem; /* (1.8rem * 0.9) */
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
-  color: #000000;
-}
-
-.nav-menu {
-  display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
 }
 
-.nav-item {
-  color: #000000;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0 0.9rem; /* (0 1rem * 0.9) */
-  height: 72px; /* Thick state for nav items (80 * 0.9) */
-  cursor: pointer;
-  transition: height 0.3s ease-in-out; /* Smooth transition */
-}
+@media (max-width: 860px) {
+  .px-nav-inner { padding: 0 20px; }
+  .px-nav-toggle { display: inline-flex; }
 
-.navbar-thin .nav-item {
-  height: 54px; /* Thin state for nav items (60 * 0.9) */
-}
-
-.nav-item:hover {
-  color: #ed3a3a;
-  transition: all 0.2s ease-in-out;
-}
-
-@media screen and (max-width: 960px) {
-  .menu-icon {
-    display: block;
-  }
-
-  .nav-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: calc(100vh - 72px); /* Thick mobile menu height (80 * 0.9) */
+  .px-nav-menu {
     position: absolute;
-    top: 72px; /* Thick mobile menu top position (80 * 0.9) */
-    left: -100%;
-    opacity: 1;
-    transition: all 0.5s ease; /* Transition for slide-in */
-    background: #ffffff; /* solid white mobile menu */
-  }
-
-  .navbar-menu-thin {
-    height: calc(100vh - 54px); /* Thin mobile menu height (60 * 0.9) */
-    top: 54px; /* Thin mobile menu top position (60 * 0.9) */
-    background: #ffffff;
-  }
-
-  .nav-menu.active {
+    top: 62px;
     left: 0;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 1;
-  }
-
-  .nav-item {
-    height: 54px; /* Default height for mobile nav items (60 * 0.9) */
     width: 100%;
-    text-align: center;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    min-height: 44px;
-    border-bottom: 1px solid #f0f0f0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--paper);
+    border-bottom: 3px solid var(--ink);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
   }
+  .px-nav-menu.open { max-height: 420px; }
 
-  .nav-item:hover {
-    background-color: #f1f1f1;
-    color: #000000;
-    transition: all 0.2s ease;
+  .px-nav-item {
+    padding: 16px 20px;
+    border-top: 2px dashed var(--pink-lt);
+    font-size: 10px;
   }
 }
