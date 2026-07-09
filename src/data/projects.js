@@ -27,6 +27,7 @@ export const PROJECTS = [
     tags: ['Luau', 'Roblox Studio'],
     link: 'https://devpost.com/software/pixel-truth',
     cover: <FaGamepad />,
+    image: '/portfolio/pixel-truth.png',
     coverBg: 'linear-gradient(135deg,#ff2e74,#ff9dbf)',
     tape: 'var(--mint)',
     rot: '1.5deg',
