@@ -175,3 +175,25 @@
   .hero-blob { width: 150px; height: 150px; }
   .hero-name { text-shadow: 4px 4px 0 var(--pink); }
 }
+
+@media (max-width: 480px) {
+  .hero { padding-top: 20px; }
+  .hero-name { font-size: clamp(34px, 12vw, 44px); text-shadow: 3px 3px 0 var(--pink); }
+  /* let the terminal role box wrap instead of overflowing off-screen */
+  .hero-role {
+    display: block;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .hero-bio { max-width: 100%; }
+  /* buttons go full-width & stack so they're easy to tap */
+  .hero-actions { gap: 12px; }
+  .hero-btn { flex: 1 1 100%; text-align: center; }
+  /* keep the collage from overflowing the narrow viewport */
+  .hero-collage { min-height: 320px; }
+  .hero-photo { width: 176px; height: 212px; }
+  .hero-blob { width: 120px; height: 120px; right: 0; }
+  .hero-sticker.st-mint { width: 68px; height: 68px; font-size: 15px; }
+  .hero-sticker.st-lav  { width: 56px; height: 56px; font-size: 15px; left: 0; }
+}

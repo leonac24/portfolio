@@ -52,3 +52,9 @@
 @media (max-width: 760px) {
   .tl-grid { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 480px) {
+  .tl-card { padding: 18px 16px; }
+  .tl-role { font-size: 10px; max-width: 88%; }
+  .tl-icon { font-size: 20px; right: 12px; }
+}

@@ -73,10 +73,12 @@ main {
 
 /* big stepped-shadow 8-bit heading */
 .px-title {
-  font: 400 clamp(20px, 4.5vw, 30px) var(--f-press);
+  font: 400 clamp(16px, 4.5vw, 30px) var(--f-press);
   color: var(--ink);
-  line-height: 1.25;
+  line-height: 1.35;
   margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .px-title.shadow-yellow { text-shadow: 3px 3px 0 var(--yellow); }
 .px-title.shadow-lav    { text-shadow: 3px 3px 0 var(--lav); }
@@ -99,4 +101,9 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 640px) {
   .px-wrap { padding: 0 20px; }
+}
+
+@media (max-width: 400px) {
+  .px-wrap { padding: 0 16px; }
+  .px-eyebrow { font-size: 11px; }
 }
