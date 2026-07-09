@@ -4,8 +4,6 @@ import {
   FaMicroscope,
   FaChalkboardTeacher,
   FaClipboardCheck,
-  FaCalculator,
-  FaGlobeAsia,
 } from 'react-icons/fa';
 
 // Timeline cards for the "THE STORY SO FAR" (work) section.
@@ -77,32 +75,6 @@ export const EXPERIENCES = [
     bullets: [
       'Graded Data Structures assignments in Python for 200+ students with actionable feedback.',
       'Guided students through debugging and complex concepts to boost retention.',
-    ],
-  },
-  {
-    role: 'Technology Intern',
-    org: 'Penn State Dept. of Mathematics',
-    date: 'May 2025 – Present',
-    loc: 'Remote',
-    icon: <FaCalculator />,
-    bg: '#eafaf1',
-    bullets: [
-      'Enhanced Matrices, Multivariable Calc & Differential Equations online Pressbooks.',
-      'Updated digital textbooks to meet WCAG accessibility with closed captioning.',
-      'Embedded interactive components with H5P and LaTeX-rendered equations.',
-    ],
-  },
-  {
-    role: 'International Student Services Assistant',
-    org: 'Penn State Global',
-    date: 'Sep 2024 – Present',
-    loc: 'University Park, PA',
-    icon: <FaGlobeAsia />,
-    bg: '#f1ecff',
-    bullets: [
-      'Supported 9,000+ international students and scholars at the front desk.',
-      'Coordinated advisor appointments and handled emergencies.',
-      'Used LLMs to organize common queries into an FAQ page for the Penn State Global site.',
     ],
   },
 ];
