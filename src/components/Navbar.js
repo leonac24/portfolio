@@ -18,7 +18,7 @@ function Navbar() {
   return (
     <nav className="px-nav">
       <div className="px-nav-inner">
-        <a href="#about" className="px-logo" onClick={close}>&#9670; LEONA.EXE</a>
+        <a href="#about" className="px-logo" onClick={close}>LEONA.EXE</a>
 
         <button
           className="px-nav-toggle"
