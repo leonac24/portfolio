@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import './About.css';
 import './animations.css';
 import { TypeAnimation } from 'react-type-animation';
+import SparkleCatch from './SparkleCatch';
 
 const PX_COLORS = ['var(--pink)', 'var(--yellow)', 'var(--mint)', 'var(--lav)'];
 const PX_GLYPHS = ['♥', '✦', '</>', '★', '▶', '1UP'];
@@ -11,6 +12,7 @@ function About() {
   const [score, setScore] = useState(0);
   const [confetti, setConfetti] = useState([]);
   const [flash, setFlash] = useState(false);
+  const [gameOpen, setGameOpen] = useState(false);
   const audioCtxRef = useRef(null);
   const seedRef = useRef(0);
 
@@ -48,6 +50,9 @@ function About() {
     setPlayer((p) => (p >= 99 ? 1 : p + 1));
     setScore((s) => s + 100);
     playBlip();
+
+    // Boot the hidden arcade game — the confetti below is the "insert coin".
+    window.setTimeout(() => setGameOpen(true), prefersReducedMotion ? 0 : 260);
 
     if (prefersReducedMotion) return;
 
@@ -87,7 +92,7 @@ function About() {
             type="button"
             className="hero-badge"
             onClick={handlePlayerClick}
-            aria-label={`Player ${player} — click for a surprise. Score ${score}`}
+            aria-label={`Player ${player} — click to play a mini-game. Score ${score}`}
           >
             &#9654; PLAYER {player}
             {score > 0 && <span className="hero-badge-score">{score}</span>}
@@ -170,6 +175,8 @@ function About() {
       </div>
 
       <div className="torn-strip hero-torn" />
+
+      <SparkleCatch open={gameOpen} onClose={() => setGameOpen(false)} />
     </section>
   );
 }
