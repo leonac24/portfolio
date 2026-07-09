@@ -1,16 +1,113 @@
-import React from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import './About.css';
 import './animations.css';
 import { TypeAnimation } from 'react-type-animation';
 
+const PX_COLORS = ['var(--pink)', 'var(--yellow)', 'var(--mint)', 'var(--lav)'];
+const PX_GLYPHS = ['♥', '✦', '</>', '★', '▶', '1UP'];
+
 function About() {
+  const [player, setPlayer] = useState(1);
+  const [score, setScore] = useState(0);
+  const [confetti, setConfetti] = useState([]);
+  const [flash, setFlash] = useState(false);
+  const audioCtxRef = useRef(null);
+  const seedRef = useRef(0);
+
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Synthesised retro "coin" blip — no audio assets needed.
+  const playBlip = useCallback(() => {
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      if (!audioCtxRef.current) audioCtxRef.current = new Ctx();
+      const ctx = audioCtxRef.current;
+      if (ctx.state === 'suspended') ctx.resume();
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(988, now);        // B5
+      osc.frequency.setValueAtTime(1319, now + 0.08); // E6
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.18, now + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.3);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.32);
+    } catch (e) {
+      /* audio is a bonus — never let it break the click */
+    }
+  }, []);
+
+  const handlePlayerClick = useCallback(() => {
+    setPlayer((p) => (p >= 99 ? 1 : p + 1));
+    setScore((s) => s + 100);
+    playBlip();
+
+    if (prefersReducedMotion) return;
+
+    setFlash(true);
+    window.setTimeout(() => setFlash(false), 220);
+
+    // Deterministic-ish spread so builds without Math.random still vary.
+    const batch = Array.from({ length: 16 }, (_, i) => {
+      seedRef.current += 1;
+      const id = `${seedRef.current}-${i}`;
+      const angle = (i / 16) * Math.PI * 2;
+      const dist = 90 + (i % 4) * 34;
+      return {
+        id,
+        glyph: PX_GLYPHS[i % PX_GLYPHS.length],
+        color: PX_COLORS[i % PX_COLORS.length],
+        dx: Math.round(Math.cos(angle) * dist),
+        dy: Math.round(Math.sin(angle) * dist) - 40,
+        rot: (i % 2 ? 1 : -1) * (20 + (i % 5) * 18),
+      };
+    });
+    setConfetti((c) => [...c, ...batch]);
+    window.setTimeout(() => {
+      const ids = new Set(batch.map((b) => b.id));
+      setConfetti((c) => c.filter((b) => !ids.has(b.id)));
+    }, 900);
+  }, [playBlip, prefersReducedMotion]);
+
   return (
     <section id="about" className="px-section hero">
+      {flash && <div className="hero-flash" aria-hidden="true" />}
       <div className="px-wrap hero-grid">
 
         {/* ---- text column ---- */}
         <div className="hero-copy">
-          <span className="hero-badge">&#9654; PLAYER 1</span>
+          <button
+            type="button"
+            className="hero-badge"
+            onClick={handlePlayerClick}
+            aria-label={`Player ${player} — click for a surprise. Score ${score}`}
+          >
+            &#9654; PLAYER {player}
+            {score > 0 && <span className="hero-badge-score">{score}</span>}
+            <span className="hero-confetti" aria-hidden="true">
+              {confetti.map((c) => (
+                <span
+                  key={c.id}
+                  className="hero-px"
+                  style={{
+                    color: c.color,
+                    '--dx': `${c.dx}px`,
+                    '--dy': `${c.dy}px`,
+                    '--rot': `${c.rot}deg`,
+                  }}
+                >
+                  {c.glyph}
+                </span>
+              ))}
+            </span>
+          </button>
 
           <h1 className="hero-name">LEONA<br />CHEN</h1>
 

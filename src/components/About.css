@@ -1,4 +1,4 @@
-.hero { padding-top: 40px; }
+.hero { padding-top: 40px; position: relative; }
 
 .hero-grid {
   display: grid;
@@ -13,6 +13,7 @@
 .hero-copy { position: relative; z-index: 2; }
 
 .hero-badge {
+  position: relative;
   display: inline-block;
   font: 400 10px var(--f-press);
   color: #fff;
@@ -21,6 +22,59 @@
   border: 3px solid var(--ink);
   box-shadow: 4px 4px 0 var(--ink);
   transform: rotate(-2deg);
+  cursor: pointer;
+  transition: transform .1s ease, box-shadow .1s ease;
+}
+.hero-badge:hover  { transform: rotate(-2deg) translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.hero-badge:active { transform: rotate(-2deg) translate(2px, 2px);   box-shadow: 0 0 0 var(--ink); }
+.hero-badge:focus-visible { outline: 3px solid var(--lav); outline-offset: 3px; }
+
+.hero-badge-score {
+  margin-left: 8px;
+  color: var(--yellow);
+  text-shadow: 1px 1px 0 var(--ink);
+}
+
+/* ---- easter-egg confetti burst ---- */
+.hero-confetti {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 40;
+}
+.hero-px {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font: 400 13px var(--f-press);
+  will-change: transform, opacity;
+  animation: hero-burst .9s cubic-bezier(.2,.7,.2,1) forwards;
+}
+@keyframes hero-burst {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(.4); opacity: 0; }
+  15%  { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1); opacity: 0; }
+}
+
+/* full-bleed retro flash on activation */
+.hero-flash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+  background: radial-gradient(circle at 20% 30%, rgba(255,216,77,.35), transparent 60%);
+  animation: hero-flash-fade .22s ease-out forwards;
+}
+@keyframes hero-flash-fade {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-px, .hero-flash { animation: none; }
 }
 
 .hero-name {
