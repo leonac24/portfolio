@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+  FaLaptopCode,
+  FaUsers,
+  FaChartBar,
+  FaSeedling,
+  FaCog,
+} from 'react-icons/fa';
 import './WorkExperience.css'; /* reuse the shared .tl-* pixel-card styles */
 import './LeadershipAndInvolvement.css';
 import './animations.css';
@@ -10,7 +17,7 @@ const INVOLVEMENTS = [
     org: 'HackPSU',
     date: 'Sep 2025 – Present',
     loc: 'University Park, PA',
-    icon: '💻',
+    icon: <FaLaptopCode />,
     bg: '#fff0f5',
     bullets: [
       'Built & maintained software for 900+ participants at Penn State’s largest hackathon.',
@@ -23,7 +30,7 @@ const INVOLVEMENTS = [
     org: 'Girls Who Code',
     date: 'Jun 2024 – Present',
     loc: 'University Park, PA',
-    icon: '👩‍💻',
+    icon: <FaUsers />,
     bg: '#eafaf1',
     bullets: [
       'Led a team of 17 to host educational and professional events for Penn State’s chapter.',
@@ -35,7 +42,7 @@ const INVOLVEMENTS = [
     org: 'Nittany Lion Consulting Group',
     date: 'Nov 2024 – May 2025',
     loc: 'University Park, PA',
-    icon: '📊',
+    icon: <FaChartBar />,
     bg: '#f1ecff',
     bullets: [
       'Delivered solutions for concrete-3D-printing startup X-Hab 3D.',
@@ -47,7 +54,7 @@ const INVOLVEMENTS = [
     org: 'PSU Women in Engineering Program',
     date: 'Aug 2024 – Present',
     loc: 'University Park, PA',
-    icon: '🌱',
+    icon: <FaSeedling />,
     bg: '#fff6d6',
     bullets: [
       'Completed a four-day orientation for first-year engineering students.',
@@ -59,7 +66,7 @@ const INVOLVEMENTS = [
     org: 'Steel City Codes',
     date: 'May 2023 – Jun 2024',
     loc: 'Pittsburgh, PA',
-    icon: '⚙️',
+    icon: <FaCog />,
     bg: '#fff0f5',
     bullets: [
       'Wrote grants supporting nationwide CS-education & diversity programs.',

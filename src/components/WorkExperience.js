@@ -1,4 +1,13 @@
 import React from 'react';
+import {
+  FaBaseballBall,
+  FaBriefcase,
+  FaMicroscope,
+  FaChalkboardTeacher,
+  FaClipboardCheck,
+  FaCalculator,
+  FaGlobeAsia,
+} from 'react-icons/fa';
 import './WorkExperience.css';
 import './animations.css';
 import { useIntersectionObserver } from './useIntersectionObserver';
@@ -9,7 +18,7 @@ const EXPERIENCES = [
     org: 'GameChanger',
     date: 'Jun 2026 – Present',
     loc: 'New York, NY',
-    icon: '⚾',
+    icon: <FaBaseballBall />,
     bg: '#eafaf1',
     bullets: [
       'Developed a cross-platform SDUI home screen with a versioned API and resilient client handling.',
@@ -22,7 +31,7 @@ const EXPERIENCES = [
     org: 'IBM',
     date: 'Jan 2026 – May 2026',
     loc: 'State College, PA',
-    icon: '💼',
+    icon: <FaBriefcase />,
     bg: '#fff0f5',
     bullets: [
       'Implemented custom enterprise MarTech solutions across Adobe Experience Platform, Marketo and Real-Time CDP.',
@@ -35,7 +44,7 @@ const EXPERIENCES = [
     org: 'James Z. Wang Research Group',
     date: 'Jan 2025 – Present',
     loc: 'University Park, PA',
-    icon: '🔬',
+    icon: <FaMicroscope />,
     bg: '#f1ecff',
     bullets: [
       'Generated thousands of large-scale AI prompts via APIs to study cultural influences on emotional expression.',
@@ -48,7 +57,7 @@ const EXPERIENCES = [
     org: 'Kode With Klossy',
     date: 'Mar 2025 – Aug 2025',
     loc: 'Remote',
-    icon: '✨',
+    icon: <FaChalkboardTeacher />,
     bg: '#fff6d6',
     bullets: [
       'Taught ML fundamentals to 40 high-school students of underrepresented genders in tech.',
@@ -61,7 +70,7 @@ const EXPERIENCES = [
     org: 'Penn State EECS',
     date: 'Aug 2025 – Dec 2025',
     loc: 'Remote',
-    icon: '📝',
+    icon: <FaClipboardCheck />,
     bg: '#fff0f5',
     bullets: [
       'Graded Data Structures assignments in Python for 200+ students with actionable feedback.',
@@ -73,7 +82,7 @@ const EXPERIENCES = [
     org: 'Penn State Dept. of Mathematics',
     date: 'May 2025 – Present',
     loc: 'Remote',
-    icon: '🧮',
+    icon: <FaCalculator />,
     bg: '#eafaf1',
     bullets: [
       'Enhanced Matrices, Multivariable Calc & Differential Equations online Pressbooks.',
@@ -86,7 +95,7 @@ const EXPERIENCES = [
     org: 'Penn State Global',
     date: 'Sep 2024 – Present',
     loc: 'University Park, PA',
-    icon: '🌏',
+    icon: <FaGlobeAsia />,
     bg: '#f1ecff',
     bullets: [
       'Supported 9,000+ international students and scholars at the front desk.',
