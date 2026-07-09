@@ -15,6 +15,7 @@ export const PROJECTS = [
     tags: ['Next.js', 'React', 'Firebase', 'Tailwind'],
     link: 'https://rethread.studio/',
     cover: <FaTshirt />,
+    image: '/portfolio/rethread.png',
     coverBg: 'linear-gradient(135deg,#8fe0b0,#c9b8ff)',
     tape: 'var(--yellow)',
     rot: '-1.5deg',
