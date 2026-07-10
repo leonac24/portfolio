@@ -140,7 +140,7 @@ function About() {
 
           <div className="hero-actions">
             <a
-              href="/portfolio/Leona Chen Resume.pdf"
+              href="/Leona Chen Resume.pdf"
               download="Leona Chen Resume.pdf"
               className="pxbtn hero-btn dark"
             >
@@ -160,7 +160,7 @@ function About() {
           <div className="pol hero-polaroid">
             <span className="tape tape-lav" />
             <div className="hero-photo">
-              <img src="/portfolio/profilepic.png" alt="Leona Chen" />
+              <img src="/profilepic.png" alt="Leona Chen" />
             </div>
             <div className="hero-photo-cap">that&rsquo;s me! &#9733;</div>
           </div>

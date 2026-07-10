@@ -21,9 +21,9 @@ export const INVOLVEMENTS = [
       'Took the concept from ideation to CAD to a 3D-printed prototype in under two weeks with a BYU, Penn State & NUS team.',
     ],
     gallery: [
-      { src: '/portfolio/gallery/nus-team-prototype.jpg', alt: 'The Summers by Design team holding the BlisterEase prototype', cap: 'team & prototype ✦' },
-      { src: '/portfolio/gallery/blisterease-prototype.jpg', alt: 'The BlisterEase assistive device 3D-printed prototype', cap: 'BlisterEase 💊' },
-      { src: '/portfolio/gallery/nus-engineering.jpg', alt: 'The team at the NUS Design & Engineering sign', cap: 'NUS Design & Engineering ✦' },
+      { src: '/gallery/nus-team-prototype.jpg', alt: 'The Summers by Design team holding the BlisterEase prototype', cap: 'team & prototype ✦' },
+      { src: '/gallery/blisterease-prototype.jpg', alt: 'The BlisterEase assistive device 3D-printed prototype', cap: 'BlisterEase 💊' },
+      { src: '/gallery/nus-engineering.jpg', alt: 'The team at the NUS Design & Engineering sign', cap: 'NUS Design & Engineering ✦' },
     ],
   },
   {
@@ -39,8 +39,8 @@ export const INVOLVEMENTS = [
       'Streamlined workflows through testing, debugging and iterative CI/CD improvements.',
     ],
     gallery: [
-      { src: '/portfolio/gallery/hackpsu-team.jpg', alt: 'The HackPSU organizing team', cap: 'the HackPSU team ✦' },
-      { src: '/portfolio/gallery/hackpsu-donut-run.jpg', alt: 'HackPSU team on a donut run', cap: 'team donut run 🍩' },
+      { src: '/gallery/hackpsu-team.jpg', alt: 'The HackPSU organizing team', cap: 'the HackPSU team ✦' },
+      { src: '/gallery/hackpsu-donut-run.jpg', alt: 'HackPSU team on a donut run', cap: 'team donut run 🍩' },
     ],
   },
   {
@@ -55,8 +55,8 @@ export const INVOLVEMENTS = [
       'Co-wrote a strategic proposal with the national Student Leadership Council.',
     ],
     gallery: [
-      { src: '/portfolio/gallery/gwc-kpmg-event.jpg', alt: 'Girls Who Code @ Penn State KPMG collaboration event', cap: 'KPMG event ✦' },
-      { src: '/portfolio/gallery/gwc-club-meeting.jpg', alt: 'Girls Who Code @ Penn State club meeting', cap: 'club meeting ✦' },
+      { src: '/gallery/gwc-kpmg-event.jpg', alt: 'Girls Who Code @ Penn State KPMG collaboration event', cap: 'KPMG event ✦' },
+      { src: '/gallery/gwc-club-meeting.jpg', alt: 'Girls Who Code @ Penn State club meeting', cap: 'club meeting ✦' },
     ],
   },
   {
@@ -71,9 +71,9 @@ export const INVOLVEMENTS = [
       'Ran market research, competitor analysis and stakeholder interviews.',
     ],
     gallery: [
-      { src: '/portfolio/gallery/nlcg-org.jpg', alt: 'Nittany Lion Consulting Group organization photo', cap: 'the org ✦' },
-      { src: '/portfolio/gallery/nlcg-dinner.jpg', alt: 'Nittany Lion Consulting Group team dinner', cap: 'team dinner ✦' },
-      { src: '/portfolio/gallery/nlcg-bonding.jpg', alt: 'Nittany Lion Consulting Group team bonding event', cap: 'team bonding ✦' },
+      { src: '/gallery/nlcg-org.jpg', alt: 'Nittany Lion Consulting Group organization photo', cap: 'the org ✦' },
+      { src: '/gallery/nlcg-dinner.jpg', alt: 'Nittany Lion Consulting Group team dinner', cap: 'team dinner ✦' },
+      { src: '/gallery/nlcg-bonding.jpg', alt: 'Nittany Lion Consulting Group team bonding event', cap: 'team bonding ✦' },
     ],
   },
   {

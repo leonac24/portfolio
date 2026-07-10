@@ -21,9 +21,9 @@ export const EXPERIENCES = [
       'Cleaned up technical debt and maintained automated test coverage under strict lint and CI/CD standards.',
     ],
     gallery: [
-      { src: '/portfolio/gallery/gc-interns.jpg', alt: 'The 2026 GameChanger intern class', cap: 'the whole intern squad ✦' },
-      { src: '/portfolio/gallery/gc-linkedin.jpg', alt: 'Visiting LinkedIn HQ, sponsored by GameChanger', cap: 'GC-sponsored trip to LinkedIn HQ' },
-      { src: '/portfolio/gallery/gc-lunch-sameer.jpg', alt: 'Lunch with GameChanger president Sameer Ahuja', cap: 'lunch with president Sameer Ahuja' },
+      { src: '/gallery/gc-interns.jpg', alt: 'The 2026 GameChanger intern class', cap: 'the whole intern squad ✦' },
+      { src: '/gallery/gc-linkedin.jpg', alt: 'Visiting LinkedIn HQ, sponsored by GameChanger', cap: 'GC-sponsored trip to LinkedIn HQ' },
+      { src: '/gallery/gc-lunch-sameer.jpg', alt: 'Lunch with GameChanger president Sameer Ahuja', cap: 'lunch with president Sameer Ahuja' },
     ],
   },
   {
@@ -39,8 +39,8 @@ export const EXPERIENCES = [
       'Collaborated with cross-functional consulting teams on marketing automation and performance optimization.',
     ],
     gallery: [
-      { src: '/portfolio/gallery/ibm-goodie-box.jpg', alt: 'IBM onboarding welcome box with branded goodies', cap: 'IBM welcome goodie box ✦' },
-      { src: '/portfolio/gallery/ibm-dinner.jpg', alt: 'Dinner with IBM executives and co-interns', cap: 'dinner with execs & co-interns' },
+      { src: '/gallery/ibm-goodie-box.jpg', alt: 'IBM onboarding welcome box with branded goodies', cap: 'IBM welcome goodie box ✦' },
+      { src: '/gallery/ibm-dinner.jpg', alt: 'Dinner with IBM executives and co-interns', cap: 'dinner with execs & co-interns' },
     ],
   },
   {
@@ -56,7 +56,7 @@ export const EXPERIENCES = [
       'Synthesized AI outputs to investigate cross-cultural variation in emotional expression.',
     ],
     gallery: [
-      { src: '/portfolio/gallery/wang-lab-members.jpg', alt: 'The James Z. Wang Research Group lab members', cap: 'the lab ✦' },
+      { src: '/gallery/wang-lab-members.jpg', alt: 'The James Z. Wang Research Group lab members', cap: 'the lab ✦' },
     ],
   },
   {
