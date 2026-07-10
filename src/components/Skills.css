@@ -4,14 +4,16 @@
   padding: 38px 0;
 }
 
-.skills-band .px-wrap {
-  position: relative;
+.skills-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .skills-badge {
-  position: absolute;
-  right: 44px;
-  top: -20px;
+  flex: none;
+  margin-top: -34px;
   width: 70px;
   height: 70px;
   background: var(--mint);
@@ -44,5 +46,5 @@
 }
 
 @media (max-width: 640px) {
-  .skills-badge { right: 16px; width: 58px; height: 58px; }
+  .skills-badge { width: 58px; height: 58px; margin-top: -30px; }
 }

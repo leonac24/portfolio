@@ -11,8 +11,10 @@ function Skills() {
     <section id="skills" ref={ref} className={`px-section skills rv ${isVisible ? 'in' : ''}`}>
       <div className="skills-band">
         <div className="px-wrap">
-          <div className="skills-badge" aria-hidden="true">TOOLS</div>
-          <div className="px-eyebrow">&#9642; INVENTORY</div>
+          <div className="skills-head">
+            <div className="px-eyebrow">&#9642; INVENTORY</div>
+            <div className="skills-badge" aria-hidden="true">TOOLS</div>
+          </div>
           <div className="skills-list">
             {SKILLS.map((s) => (
               <span key={s} className="chip skill-chip">{s}</span>
