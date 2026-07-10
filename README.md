@@ -4,7 +4,7 @@ This is the source code for my personal website, built using **React.js**. It's 
 
 ## 🚀 Live Site
 
-You can visit the live site here: https://leonac24.github.io/portfolio/
+You can visit the live site here: https://leonachen.dev
 
 ## 🛠️ Tech Stack
 
