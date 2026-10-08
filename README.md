@@ -22,7 +22,7 @@ The source for my personal site — a pixel-arcade portfolio where the resume is
 |------|----------|
 | **Framework** | React.js |
 | **Styling** | Hand-rolled CSS (8-bit stickers, drop shadows, the whole aesthetic) |
-| **Hosting** | Vercel @ custom domain |
+| **Hosting** | Vercel @ custom domain leonachen.dev |
 | **Deploy** | Auto-deploys on every push to `main` |
 
 ## 🎮 RUN IT LOCALLY
