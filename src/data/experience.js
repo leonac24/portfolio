@@ -11,14 +11,15 @@ export const EXPERIENCES = [
   {
     role: 'Software Engineering Intern · Fan Experience',
     org: 'GameChanger',
-    date: 'Jun 2026 – Present',
+    date: 'Jun 2026 – Aug 2026',
     loc: 'New York, NY',
     icon: <FaBaseballBall />,
     bg: '#eafaf1',
     bullets: [
-      'Developed a cross-platform SDUI home screen with a versioned API and resilient client handling.',
-      'Built and maintained full-stack features across React/TypeScript frontends and backend API services.',
-      'Cleaned up technical debt and maintained automated test coverage under strict lint and CI/CD standards.',
+      'Built server-driven UI components and concurrent data-source APIs for a cross-platform mobile/web home screen.',
+      'Shipped the React/TypeScript client framework that parses, validates and routes server-declared UI actions.',
+      'Created metadata-driven view auto-refresh that preserves the last good render through failed background refetches.',
+      'Cut ~1,500 lines of dead code by retiring 7 rolled-out feature flags across 3 repos under strict lint/CI standards.',
     ],
     gallery: [
       { src: '/gallery/gc-interns.jpg', alt: 'The 2026 GameChanger intern class', cap: 'the whole intern squad ✦' },
@@ -44,7 +45,7 @@ export const EXPERIENCES = [
     ],
   },
   {
-    role: 'Research Intern',
+    role: 'Graduate Research Assistant',
     org: 'James Z. Wang Research Group',
     date: 'Jan 2025 – Present',
     loc: 'University Park, PA',

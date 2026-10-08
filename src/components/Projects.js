@@ -18,13 +18,15 @@ function Projects() {
               className="pxlift project-card"
               style={{ transform: `rotate(${p.rot})` }}
             >
-              <a
-                href={p.link}
-                target={p.link.startsWith('http') ? '_blank' : undefined}
-                rel="noopener noreferrer"
-                className="project-link"
-                aria-label={`${p.name} — view project`}
-              />
+              {p.link && (
+                <a
+                  href={p.link}
+                  target={p.link.startsWith('http') ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  className="project-link"
+                  aria-label={`${p.name} — view project`}
+                />
+              )}
               <span className="project-tape" style={{ background: p.tape }} />
               <div className="project-cover" style={{ background: p.coverBg }}>
                 {p.image ? (
@@ -53,6 +55,17 @@ function Projects() {
                   &#9654; {p.news.label}
                 </a>
               )}
+              {p.links && p.links.map((l) => (
+                <a
+                  key={l.href}
+                  className="project-news"
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  &#9654; {l.label}
+                </a>
+              ))}
               {p.gallery && p.gallery.length > 0 && (
                 <div className="project-gallery">
                   {p.gallery.map((g) => (

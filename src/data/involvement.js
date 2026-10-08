@@ -27,16 +27,17 @@ export const INVOLVEMENTS = [
     ],
   },
   {
-    role: 'Front-End Developer / Technology Organizer',
+    role: 'Full-Stack Developer / Technology Team Organizer',
     org: 'HackPSU',
     date: 'Sep 2025 – Present',
     loc: 'University Park, PA',
     icon: <FaLaptopCode />,
     bg: '#fff0f5',
     bullets: [
-      'Built & maintained software for 900+ participants at Penn State’s largest hackathon.',
-      'Shipped front-end features and API integrations with design and back-end teams.',
-      'Streamlined workflows through testing, debugging and iterative CI/CD improvements.',
+      'Shipped features across 7 repos in Next.js, NestJS and Flask for 1k+ participants, sponsors and organizers.',
+      'Built HackPSU Live, a Next.js day-of site with live schedule, auth-gated QR pass and cached Discord API announcements.',
+      'Rewrote NestJS race analytics to bucket free-text entries via parallel parameterized SQL queries in Objection.js.',
+      'Implemented TanStack Query polling and a shared useSyncExternalStore clock to prevent hydration mismatches.',
     ],
     gallery: [
       { src: '/gallery/hackpsu-team.jpg', alt: 'The HackPSU organizing team', cap: 'the HackPSU team ✦' },
@@ -46,7 +47,7 @@ export const INVOLVEMENTS = [
   {
     role: 'Loop Founder & Co-President · 2024 Leadership Council',
     org: 'Girls Who Code',
-    date: 'Jun 2024 – Present',
+    date: 'Jun 2024 – Jan 2026',
     loc: 'University Park, PA',
     icon: <FaUsers />,
     bg: '#eafaf1',

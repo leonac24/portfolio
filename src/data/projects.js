@@ -4,6 +4,9 @@ import {
   FaTshirt,
   FaGamepad,
   FaChartBar,
+  FaPiggyBank,
+  FaCity,
+  FaSatelliteDish,
 } from 'react-icons/fa';
 
 // Cards for the "THINGS I MADE" section.
@@ -14,6 +17,13 @@ export const PROJECTS = [
     desc: 'Full-stack fashion-sustainability app in Next.js integrating 6 external APIs across a parallel server-side AI pipeline. Built a serverless REST API with async fan-out, in-memory caching and rate limiting across 9 endpoints, plus Firebase (Google OAuth + Firestore atomic batch writes) for user-stat aggregation.',
     tags: ['Next.js', 'React', 'Firebase', 'Tailwind'],
     link: 'https://rethread.studio/',
+    news: {
+      label: 'Featured in Penn State News',
+      href: 'https://www.psu.edu/news/engineering/story/penn-state-undergrads-named-hackathon-finalists-sustainable-fashion-app',
+    },
+    links: [
+      { label: 'GitHub', href: 'https://github.com/leonac24/rethread' },
+    ],
     cover: <FaTshirt />,
     image: '/rethread.png',
     gallery: [
@@ -46,15 +56,83 @@ export const PROJECTS = [
     rot: '1.5deg',
   },
   {
+    name: 'NestEgg',
+    award: <>— 2nd Place @ SteelHacks 2026 <FaMedal style={{ verticalAlign: '-0.12em' }} /></>,
+    desc: 'Voice banking app with a Postgres backend on Drizzle ORM and type-safe oRPC routers with RBAC. Designed a change-request state machine gated by permission tiers (approval, rejection and timeout flows), plus an integer-cents finance library for safe-to-spend, shortfall projection and anomaly detection — all unit tested.',
+    tags: ['TypeScript', 'oRPC', 'Drizzle', 'PostgreSQL'],
+    link: 'https://nestegg.bugdex.org/',
+    links: [
+      { label: 'Devpost', href: 'https://devpost.com/software/psu-bc' },
+      { label: 'GitHub', href: 'https://github.com/matmanna/nestegg' },
+    ],
+    cover: <FaPiggyBank />,
+    image: '/nestegg.png',
+    gallery: [
+      { src: '/gallery/nestegg-dashboard.jpg', alt: 'NestEgg caretaker dashboard with budgets, balance and spending', cap: 'caretaker dashboard ✦' },
+      { src: '/gallery/nestegg-senior-view.jpg', alt: 'NestEgg simplified senior-facing view', cap: 'senior-facing simple UI ✦' },
+      { src: '/gallery/nestegg-login.jpg', alt: 'NestEgg account login screen', cap: 'account login ✦' },
+    ],
+    coverBg: 'linear-gradient(135deg,#ffe27a,#ff9dbf)',
+    tape: 'var(--lav)',
+    rot: '-1deg',
+  },
+  {
+    name: 'Lotline',
+    award: '— AI Horizons 2026 AI for Housing Hackathon',
+    desc: 'FastAPI backend and GeoPandas ETL pipeline indexing 22K+ vacant Pittsburgh parcels, with Pydantic validation and pytest. Built a three.js 3D city simulator with instanced parcels, drag-and-drop, AABB collision and setback checks, plus LLM zoning-rule extraction with verbatim-quote verification and deed parsing for 15K+ lot dimensions.',
+    tags: ['Python', 'FastAPI', 'React', 'three.js'],
+    link: 'https://lotline-pgh.vercel.app/',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/leonac24/LotLine' },
+    ],
+    cover: <FaCity />,
+    image: '/lotline.png',
+    gallery: [
+      { src: '/gallery/lotline-city-map.jpg', alt: 'Lotline 3D city map of Pittsburgh with vacant lots highlighted by neighborhood', cap: '3D Pittsburgh ✦' },
+      { src: '/gallery/lotline-lot-sim.jpg', alt: 'Lotline lot simulator with a rowhouse placed on a vacant lot on Queen St', cap: 'placing a rowhouse ✦' },
+      { src: '/gallery/lotline-architecture.png', alt: 'Lotline architecture diagram: offline pipeline, shared engine and runtime', cap: 'the architecture ✦' },
+    ],
+    coverBg: 'linear-gradient(135deg,#8fe0b0,#9dd6ff)',
+    tape: 'var(--yellow)',
+    rot: '1deg',
+  },
+  {
     name: 'AI Enterprise Readiness Advisor',
     award: '',
     desc: 'React + Vite app using the Google Gemini API to process multi-step inputs and return real-time analysis. Engineered structured prompt chaining to parse freeform client profiles into strict JSON, then rendered scoring dashboards and transformation roadmaps with Recharts.',
     tags: ['React', 'Vite', 'JavaScript', 'Gemini API', 'Recharts'],
     link: 'https://github.com/leonac24/enterprise-ai-readiness-advisor',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/leonac24/enterprise-ai-readiness-advisor' },
+    ],
     cover: <FaChartBar />,
     image: '/ai-readiness-advisor.png',
+    gallery: [
+      { src: '/gallery/ai-advisor-profile.jpg', alt: 'AI Readiness Advisor with a healthcare client profile and a suggested industry benchmark', cap: 'profile + suggested benchmark ✦' },
+      { src: '/gallery/ai-advisor-compare.jpg', alt: 'AI Readiness Advisor compare-two-profiles mode', cap: 'compare two profiles ✦' },
+    ],
     coverBg: 'linear-gradient(135deg,#c9b8ff,#8fe0b0)',
     tape: 'var(--lav)',
     rot: '-1deg',
+  },
+  {
+    name: 'Complaint Radar',
+    award: '',
+    desc: 'Early-warning radar for consumer-finance risk built on the CFPB complaint archive (6.8M+ complaints). A pandas pipeline scores cluster velocity, company lift and copy-paste templating; Claude extracts root causes from narratives, an analyst agent writes executive briefs and a skeptic agent rejects weak signals. Served via FastAPI to an interactive Next.js radar UI.',
+    tags: ['Python', 'FastAPI', 'Next.js', 'TypeScript', 'Claude API'],
+    link: 'https://complaint-radar-six.vercel.app/',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/leonac24/Complaint-Radar' },
+    ],
+    cover: <FaSatelliteDish />,
+    image: '/complaint-radar.png',
+    gallery: [
+      { src: '/gallery/complaint-radar-skeptic.jpg', alt: 'Complaint Radar skeptic agent checks on a complaint cluster', cap: 'the skeptic at work ✦' },
+      { src: '/gallery/complaint-radar-lens.jpg', alt: 'Complaint Radar bank lens showing lift and velocity against peers', cap: 'bank lens ✦' },
+      { src: '/gallery/complaint-radar-pipeline.jpg', alt: 'Complaint Radar pipeline: ingest, emergence, templating, extract, themes, analyst, skeptic, export', cap: 'the pipeline ✦' },
+    ],
+    coverBg: 'linear-gradient(135deg,#1e1b2e,#ff9dbf)',
+    tape: 'var(--mint)',
+    rot: '1deg',
   },
 ];

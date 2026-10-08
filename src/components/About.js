@@ -134,7 +134,7 @@ function About() {
           </div>
 
           <p className="hero-bio">
-            CS, Math, &amp; Data Science @ Penn State Schreyer Honors College. Currently a Software
+            CS, Math, &amp; Data Science @ Penn State Schreyer Honors College. Former Software
             Engineering Intern on the Fan Experience team @ GameChanger. Former Associate Application Developer Co-Op Intern @IBM. On a quest toward full-stack &amp; machine-learning engineering.
           </p>
 
