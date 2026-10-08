@@ -22,8 +22,8 @@ The source for my personal site — a pixel-arcade portfolio where the resume is
 |------|----------|
 | **Framework** | React.js |
 | **Styling** | Hand-rolled CSS (8-bit stickers, drop shadows, the whole aesthetic) |
-| **Hosting** | GitHub Pages @ custom domain |
-| **Deploy** | `gh-pages` → `gh-pages` branch |
+| **Hosting** | Vercel @ custom domain |
+| **Deploy** | Auto-deploys on every push to `main` |
 
 ## 🎮 RUN IT LOCALLY
 
@@ -31,7 +31,7 @@ The source for my personal site — a pixel-arcade portfolio where the resume is
 npm install      # load the cartridge
 npm start        # boot at http://localhost:3000
 npm run build    # compile the ROM
-npm run deploy   # ship it to leonachen.dev
+git push         # ship it to leonachen.dev (Vercel deploys main)
 ```
 
 ## 🗺️ THE MAP
